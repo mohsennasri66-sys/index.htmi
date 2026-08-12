@@ -14,7 +14,7 @@
         .logo-text p { font-size: 0.75rem; color: #94a3b8; }
         .header-btn { background-color: #e67e22; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: bold; }
 
-        /* بخش هیرو با عکس پس‌زمینه bg.jpg */
+        /* بخش هیرو با عکس پس‌زمینه */
         .hero { 
             background: linear-gradient(rgba(11, 19, 30, 0.85), rgba(11, 19, 30, 0.9)), url('bg.jpg') center/cover; 
             padding: 90px 5%; 
@@ -25,14 +25,16 @@
         .hero h3 { font-size: 1.3rem; color: #e67e22; margin-bottom: 20px; }
         .hero p { color: #94a3b8; font-size: 1.05rem; }
 
-        /* پروژه‌ها و صنایع */
+        /* پروژه‌ها و صنایع با عکس */
         .projects-section { padding: 50px 5%; }
         .projects-section h3 { font-size: 1.5rem; margin-bottom: 25px; color: #fff; text-align: center; }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .project-card { background-color: #131b2e; border: 1px solid #1e293b; border-radius: 8px; padding: 25px 15px; text-align: center; transition: 0.3s; }
+        .project-card { background-color: #131b2e; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; transition: 0.3s; }
         .project-card:hover { border-color: #e67e22; transform: translateY(-5px); }
-        .project-card i { font-size: 2.5rem; color: #e67e22; margin-bottom: 15px; }
-        .project-card h4 { font-size: 1.1rem; color: #fff; }
+        .project-img { height: 160px; background-color: #0b131e; }
+        .project-img img { width: 100%; height: 100%; object-fit: cover; }
+        .project-body { padding: 15px; text-align: center; }
+        .project-body h4 { font-size: 1rem; color: #fff; }
 
         /* بخش تماس */
         .contact-section { padding: 50px 5%; text-align: center; background: #070b12; border-top: 1px solid #1e293b; }
@@ -62,29 +64,29 @@
         <p>بیش از دو دهه تجربه عملی در صنایع سنگین و ماشین‌آلات</p>
     </section>
 
-    <!-- حوزه‌های تخصصی -->
+    <!-- حوزه‌های تخصصی با عکس‌های اختصاصی -->
     <section class="projects-section">
         <h3>حوزه‌های تخصصی و صنایع</h3>
         <div class="projects-grid">
             <div class="project-card">
-                <i class="fa fa-bolt"></i>
-                <h4>سیم‌پیچی</h4>
+                <div class="project-img"><img src="sim.jpg" alt="سیم‌پیچی"></div>
+                <div class="project-body"><h4>سیم‌پیچی</h4></div>
             </div>
             <div class="project-card">
-                <i class="fa fa-industry"></i>
-                <h4>صنعت شیشه فلوت</h4>
+                <div class="project-img"><img src="float.jpg" alt="شیشه فلوت"></div>
+                <div class="project-body"><h4>صنعت شیشه فلوت</h4></div>
             </div>
             <div class="project-card">
-                <i class="fa fa-network-wired"></i>
-                <h4>صنعت کابل</h4>
+                <div class="project-img"><img src="cable.jpg" alt="صنعت کابل"></div>
+                <div class="project-body"><h4>صنعت کابل</h4></div>
             </div>
             <div class="project-card">
-                <i class="fa fa-cogs"></i>
-                <h4>صنعت فولاد</h4>
+                <div class="project-img"><img src="steel.jpg" alt="صنعت فولاد"></div>
+                <div class="project-body"><h4>صنعت فولاد</h4></div>
             </div>
             <div class="project-card">
-                <i class="fa fa-wine-bottle"></i>
-                <h4>شیشه دارویی و بطری</h4>
+                <div class="project-img"><img src="bottle.jpg" alt="شیشه دارویی و بطری"></div>
+                <div class="project-body"><h4>شیشه دارویی و بطری</h4></div>
             </div>
         </div>
     </section>
