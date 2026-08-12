@@ -8,10 +8,57 @@
         body { background-color: #0b131e; color: #fff; direction: rtl; line-height: 1.6; text-align: right; }
         
         /* هدر بالای سایت */
-        header { background-color: #070b12; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e67e22; flex-wrap: wrap; gap: 10px; }
-        header .contact-info { display: flex; gap: 20px; align-items: center; }
-        header a { color: #e67e22; font-weight: bold; text-decoration: none; font-size: 0.95rem; }
-        header a:hover { text-decoration: underline; }
+        header { background-color: #070b12; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e67e22; flex-wrap: wrap; gap: 10px; position: relative; }
+        header h1 { font-size: 1.5rem; color: #fff; }
+
+        /* منوی کشویی تماس با ما در هدر */
+        .contact-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .contact-drop-btn {
+            background: #131b2e;
+            color: #e67e22;
+            border: 1px solid #e67e22;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-family: Tahoma, sans-serif;
+            transition: 0.3s;
+        }
+        .contact-drop-btn:hover {
+            background: #e67e22;
+            color: #fff;
+        }
+        .contact-drop-content {
+            display: none;
+            position: absolute;
+            left: 0;
+            background-color: #131b2e;
+            min-width: 240px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+            border: 1px solid #e67e22;
+            border-radius: 6px;
+            z-index: 100;
+            padding: 10px;
+            text-align: right;
+        }
+        .contact-drop-content a {
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            display: block;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #1e293b;
+            transition: 0.2s;
+        }
+        .contact-drop-content a:last-child { border-bottom: none; }
+        .contact-drop-content a:hover {
+            color: #ef4444;
+            background: #1a1c23;
+        }
 
         /* بنر */
         .banner-container {
@@ -196,9 +243,13 @@
 
     <header>
         <h1>مهندسی محسن نصری</h1>
-        <div class="contact-info">
-            <a href="tel:09193890454">تلفن: ۰۹۱۹۳۸۹۰۴۵۴</a>
-            <a href="mailto:mohsennasri66@gmail.com">ایمیل: mohsennasri66@gmail.com</a>
+        <!-- منوی کشویی تماس با ما -->
+        <div class="contact-dropdown">
+            <button class="contact-drop-btn" onclick="toggleContactMenu(event)">📞 تماس با ما</button>
+            <div id="contactMenuBox" class="contact-drop-content">
+                <a href="tel:09193890454">تلفن: ۰۹۱۹۳۸۹۰۴۵۴</a>
+                <a href="mailto:mohsennasri66@gmail.com">ایمیل: mohsennasri66@gmail.com</a>
+            </div>
         </div>
     </header>
 
@@ -352,12 +403,11 @@
                 </div>
             </div>
 
-            <!-- ================= صفحه اختصاصی: مشاوره فنی (با عکس چرخ‌دنده، گیربکس، آچار و بلبرینگ) ================= -->
+            <!-- ================= صفحه اختصاصی: مشاوره فنی ================= -->
             <div id="consultation-page" class="page-section">
                 <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>مشاوره فنی تخصصی تجهیزات صنعتی</h2>
-                    <!-- عکس چرخ دنده، گیربکس، آچار و بلبرینگ -->
                     <img src="gearbox-bearing.jpg" class="main-img" alt="مشاوره فنی و قطعات صنعتی">
                     <p>جهت دریافت مشاوره در زمینه عیب‌یابی، تعمیرات مکانیکی، گیربکس‌ها و تجهیزات صنعتی، فرم زیر را تکمیل نمایید تا پاسخگوی شما باشم.</p>
                     
@@ -379,12 +429,11 @@
                 </div>
             </div>
 
-            <!-- ================= صفحه اختصاصی: همکاری و انجام پروژه (با عکس دست دادن دو نفر) ================= -->
+            <!-- ================= صفحه اختصاصی: همکاری و انجام پروژه ================= -->
             <div id="cooperation-page" class="page-section">
                 <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>همکاری و انجام پروژه‌های صنعتی</h2>
-                    <!-- عکس دست دادن دو نفر برای همکاری -->
                     <img src="cooperation.jpg" class="main-img" alt="همکاری و انجام پروژه">
                     <p>دارای بیش از دو دهه تجربه در صنایع فولاد، شیشه فلوت، کابل‌سازی و سیم‌پیچی. آماده عقد قرارداد و همکاری در پروژه‌های اورهال، نصب و راه‌اندازی ماشین‌آلات سنگین.</p>
                     
@@ -418,6 +467,25 @@
 
     <!-- اسکریپت‌های کنترلی -->
     <script>
+        // باز و بسته کردن منوی کشویی تماس با ما در بالای صفحه
+        function toggleContactMenu(event) {
+            event.stopPropagation();
+            let menu = document.getElementById('contactMenuBox');
+            if (menu.style.display === "block") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "block";
+            }
+        }
+
+        // اگر کاربر بیرون از منوی تماس کلیک کرد، منو بسته شود
+        window.onclick = function(event) {
+            let menu = document.getElementById('contactMenuBox');
+            if (menu && menu.style.display === "block") {
+                menu.style.display = "none";
+            }
+        }
+
         function hideAll() {
             document.getElementById('main-projects').style.display = 'none';
             let sections = document.querySelectorAll('.detail-section, .page-section');
