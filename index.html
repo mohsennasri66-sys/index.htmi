@@ -75,11 +75,8 @@
             margin-bottom: 20px;
         }
 
-        /* بخش لیست مطالب کشویی با قابلیت تغییر رنگ به قرمز هنگام رفتن موس */
-        .post-list {
-            margin-top: 20px;
-        }
-        
+        /* بخش لیست مطالب کشویی با افکت قرمز شدن موس */
+        .post-list { margin-top: 20px; }
         .post-item {
             background: #0f172a;
             border: 1px solid #1e293b;
@@ -88,15 +85,8 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-
-        /* وقتی موس میره روی مطلب، رنگش قرمز میشه */
-        .post-item:hover {
-            border-color: #ef4444;
-            background: #1a1c23;
-        }
-        .post-item:hover .post-title {
-            color: #ef4444;
-        }
+        .post-item:hover { border-color: #ef4444; background: #1a1c23; }
+        .post-item:hover .post-title { color: #ef4444; }
 
         .post-title {
             padding: 15px 20px;
@@ -109,8 +99,6 @@
             font-weight: bold;
             transition: 0.3s;
         }
-
-        /* محتوای کشویی داخلی هر مطلب */
         .post-body {
             display: none;
             padding: 20px;
@@ -120,34 +108,43 @@
         }
         .post-body p { margin-bottom: 15px; line-height: 1.8; }
 
-        /* استایل جدول‌های صنعتی */
-        .industrial-table {
+        /* استایل پنجره مشاوره آنلاین (فرم درخواست) */
+        .consultation-box {
+            background: linear-gradient(135deg, #131b2e, #0f172a);
+            border: 2px solid #e67e22;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .consultation-box h3 { color: #e67e22; margin-bottom: 10px; font-size: 1.5rem; }
+        .consultation-box p { color: #94a3b8; margin-bottom: 20px; font-size: 0.95rem; }
+        
+        .form-group { margin-bottom: 15px; text-align: right; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .form-group label { display: block; margin-bottom: 5px; color: #cbd5e1; font-size: 0.9rem; }
+        .form-control {
             width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-            background: #0f172a;
+            padding: 12px;
+            background: #070b12;
+            border: 1px solid #334155;
             border-radius: 6px;
-            overflow: hidden;
+            color: #fff;
+            font-family: Tahoma, sans-serif;
         }
-        .industrial-table th, .industrial-table td {
-            border: 1px solid #1e293b;
-            padding: 10px 15px;
-            text-align: right;
+        .form-control:focus { border-color: #e67e22; outline: none; }
+        
+        .submit-btn {
+            background: #e67e22;
+            color: #fff;
+            border: none;
+            padding: 12px 35px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
         }
-        .industrial-table th { background: #1e293b; color: #e67e22; }
-
-        .sub-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 10px;
-            margin-top: 15px;
-        }
-        .sub-gallery img {
-            width: 100%;
-            height: 130px;
-            object-fit: cover;
-            border-radius: 4px;
-        }
+        .submit-btn:hover { background: #d35400; }
 
         .contact { padding: 40px; text-align: center; background: #070b12; margin-top: 30px; }
         .btn { background: #e67e22; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; }
@@ -169,7 +166,7 @@
 
     <div class="container">
 
-        <!-- منوی اصلی کارت‌ها (۵ تا عکس خدمات) -->
+        <!-- منوی اصلی کارت‌ها -->
         <div id="main-projects" class="projects">
             <div class="card" onclick="openSection('sim-section')">
                 <img src="sim.jpg" alt="سیم‌پیچی">
@@ -193,7 +190,7 @@
             </div>
         </div>
 
-        <!-- ================= صفحات داخلی با مطالب کشویی و افکت قرمز ================= -->
+        <!-- ================= صفحات داخلی مطالب (کشویی و افکت قرمز) ================= -->
 
         <!-- ۱. سیم‌پیچی -->
         <div id="sim-section" class="detail-section">
@@ -203,36 +200,16 @@
                 <img src="sim.jpg" class="main-img" alt="سیم‌پیچی">
                 
                 <div class="post-list">
-                    <!-- مطلب اول -->
                     <div class="post-item">
                         <div class="post-title" onclick="togglePost(this)">
                             <span>مطلب اول: بازپیچی موتورهای سنگین AC</span>
                             <span>▼</span>
                         </div>
                         <div class="post-body">
-                            <p>توضیحات کامل و جزئیات فنی این مطلب را اینجا بنویسید...</p>
-                            <table class="industrial-table">
-                                <tr><th>مشخصات</th><th>مقدار</th></tr>
-                                <tr><td>توان موتور</td><td>تا چند مگاوات</td></tr>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- مطلب دوم (هر چقدر خواستی از این باکس‌ها می‌تونی کپی کنی و اضافه کنی) -->
-                    <div class="post-item">
-                        <div class="post-title" onclick="togglePost(this)">
-                            <span>مطلب دوم: تست عایق‌کاری و رفع اتصالی</span>
-                            <span>▼</span>
-                        </div>
-                        <div class="post-body">
-                            <p>متن کامل مطلب دوم و عکس‌های مربوطه...</p>
-                            <div class="sub-gallery">
-                                <img src="sim.jpg" alt="نمونه عکس">
-                            </div>
+                            <p>توضیحات و جزئیات فنی این بخش...</p>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -242,19 +219,15 @@
             <div class="article-content">
                 <h2>شیشه فلوت و ماشین‌آلات خط تولید</h2>
                 <img src="float.jpg" class="main-img" alt="شیشه فلوت">
-                
                 <div class="post-list">
                     <div class="post-item">
                         <div class="post-title" onclick="togglePost(this)">
                             <span>مطلب اول: تنظیم مکانیکی حوضچه قلع (Tin Bath)</span>
                             <span>▼</span>
                         </div>
-                        <div class="post-body">
-                            <p>توضیحات تخصصی خط فلوت...</p>
-                        </div>
+                        <div class="post-body"><p>توضیحات خط فلوت...</p></div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -264,19 +237,15 @@
             <div class="article-content">
                 <h2>صنعت کابل و تجهیزات دوار</h2>
                 <img src="cable.jpg" class="main-img" alt="صنعت کابل">
-                
                 <div class="post-list">
                     <div class="post-item">
                         <div class="post-title" onclick="togglePost(this)">
                             <span>مطلب اول: تراز لیزری و سرویس اکسترودرها</span>
                             <span>▼</span>
                         </div>
-                        <div class="post-body">
-                            <p>توضیحات صنعت کابل...</p>
-                        </div>
+                        <div class="post-body"><p>توضیحات صنعت کابل...</p></div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -286,19 +255,15 @@
             <div class="article-content">
                 <h2>صنعت فولاد و تجهیزات سنگین</h2>
                 <img src="steel.jpg" class="main-img" alt="صنعت فولاد">
-                
                 <div class="post-list">
                     <div class="post-item">
                         <div class="post-title" onclick="togglePost(this)">
                             <span>مطلب اول: اورهال خط نورد و تجهیزات سنگین</span>
                             <span>▼</span>
                         </div>
-                        <div class="post-body">
-                            <p>توضیحات فولاد...</p>
-                        </div>
+                        <div class="post-body"><p>توضیحات فولاد...</p></div>
                     </div>
                 </div>
-
             </div>
         </div>
 
@@ -308,29 +273,47 @@
             <div class="article-content">
                 <h2>شیشه دارویی و ماشین‌آلات حساس</h2>
                 <img src="bottle.jpg" class="main-img" alt="شیشه دارویی">
-                
                 <div class="post-list">
                     <div class="post-item">
                         <div class="post-title" onclick="togglePost(this)">
                             <span>مطلب اول: تنظیم بادامک‌ها و فرم‌دهی آمپول و ویال</span>
                             <span>▼</span>
                         </div>
-                        <div class="post-body">
-                            <p>توضیحات شیشه دارویی...</p>
-                        </div>
+                        <div class="post-body"><p>توضیحات شیشه دارویی...</p></div>
                     </div>
                 </div>
-
             </div>
+        </div>
+
+        <!-- ================= بخش پنجره مشاوره و ثبت درخواست ================= -->
+        <div class="consultation-box">
+            <h3>💬 مشاوره فنی و ثبت درخواست پروژه</h3>
+            <p>سوالی دارید یا در زمینه نصب و تعمیرات تجهیزات صنعتی نیاز به مشاوره تخصصی دارید؟ پیام بگذارید تا پاسخ دهم.</p>
+            
+            <form onsubmit="sendConsultation(event)">
+                <div class="form-group">
+                    <label>نام و نام خانوادگی / نام شرکت:</label>
+                    <input type="text" id="c-name" class="form-control" required placeholder="مثلاً: شرکت فولاد...">
+                </div>
+                <div class="form-group">
+                    <label>شماره تماس:</label>
+                    <input type="tel" id="c-phone" class="form-control" required placeholder="۰۹12...">
+                </div>
+                <div class="form-group">
+                    <label>متن پیام یا شرح درخواست فنی:</label>
+                    <textarea id="c-msg" class="form-control" rows="4" required placeholder="شرح سوال یا درخواست پروژه..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">ارسال پیام / درخواست مشاوره</button>
+            </form>
         </div>
 
     </div>
 
     <section class="contact">
-        <a href="tel:09193890454" class="btn">تماس با من: ۰۹۱۹۳۸۹۰۴۵۴</a>
+        <a href="tel:09193890454" class="btn">تماس مستقیم با مهندس نصری: ۰۹۱۹۳۸۹۰۴۵۴</a>
     </section>
 
-    <!-- اسکریپت‌های حرکتی و کشویی -->
+    <!-- اسکریپت‌ها -->
     <script>
         function openSection(sectionId) {
             document.getElementById('main-projects').style.display = 'none';
@@ -347,7 +330,6 @@
             window.scrollTo({ top: 400, behavior: 'smooth' });
         }
 
-        // تابع باز و بسته شدن مطالب کشویی
         function togglePost(element) {
             let body = element.nextElementSibling;
             if (body.style.display === "block") {
@@ -355,6 +337,18 @@
             } else {
                 body.style.display = "block";
             }
+        }
+
+        // عملکرد دکمه ارسال پیام مشاوره
+        function sendConsultation(event) {
+            event.preventDefault();
+            let name = document.getElementById('c-name').value;
+            let phone = document.getElementById('c-phone').value;
+            let msg = document.getElementById('c-msg').value;
+
+            // ساخت لینک واتساپ یا پیام مستقیم جهت دریافت پیام‌ها روی گوشی شما
+            let text = `سلام، درخواست مشاوره جدید:%0Aنام: ${name}%0Aشماره: ${phone}%0Aپیام: ${msg}`;
+            window.open(`https://wa.me/989193890454?text=${text}`, '_blank');
         }
     </script>
 
