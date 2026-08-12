@@ -7,7 +7,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
         body { background-color: #0b131e; color: #fff; direction: rtl; line-height: 1.6; text-align: right; }
         
-        /* بنر بالای سایت (همون عکس اصلی) */
+        /* بنر بالای سایت (دست‌نخورده) */
         .banner-container {
             width: 100%;
             height: 350px;
@@ -29,14 +29,14 @@
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
         
-        /* ۵ تا کارت خدمات پایین سایت (مثل قبل) */
+        /* ۵ تا کارت خدمات پایین سایت */
         .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
         .card { background: #131b2e; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; text-align: center; cursor: pointer; transition: 0.3s; }
         .card:hover { border-color: #e67e22; transform: translateY(-3px); }
         .card img { width: 100%; height: 140px; object-fit: cover; }
         .card h4 { padding: 15px; color: #fff; margin-top: -5px; }
 
-        /* نمای داخلی مطالب هر بخش (وقتی کاربر کلیک می‌کنه) */
+        /* نمای داخلی مطالب هر بخش (که برای همه بخش‌ها فعال است) */
         .detail-section {
             display: none;
             background: #131b2e;
@@ -84,6 +84,7 @@
         }
 
         .detail-text h2 { color: #e67e22; margin-bottom: 15px; font-size: 1.5rem; }
+        .detail-text p { color: #ccc; margin-bottom: 15px; line-height: 1.8; }
         .detail-text ul { padding-right: 20px; color: #cbd5e1; margin-top: 10px; }
         .detail-text ul li { margin-bottom: 8px; }
 
@@ -99,7 +100,7 @@
         <a href="tel:09193890454" style="color:#e67e22; font-weight:bold; text-decoration:none;">۰۹۱۹۳۸۹۰۴۵۴</a>
     </header>
 
-    <!-- عکس بنر صنعتی بالای سایت (دست‌نخورده مثل قبل) -->
+    <!-- عکس بنر صنعتی بالای سایت -->
     <div class="banner-container"></div>
 
     <section class="hero">
@@ -109,7 +110,7 @@
 
     <div class="container">
 
-        <!-- منوی اصلی کارت‌ها (۵ تا عکس خدمات) -->
+        <!-- منوی اصلی کارت‌ها (۵ عکس خدمات) -->
         <div id="main-projects" class="projects">
             <div class="card" onclick="openSection('sim-section')">
                 <img src="sim.jpg" alt="سیم‌پیچی">
@@ -133,7 +134,7 @@
             </div>
         </div>
 
-        <!-- ---------------- صفحات داخلی (محتوا و جزئیات هر بخش) ---------------- -->
+        <!-- ================= صفحات داخلی مطالب (برای همه بخش‌ها) ================= -->
 
         <!-- ۱. سیم‌پیچی -->
         <div id="sim-section" class="detail-section">
@@ -142,7 +143,7 @@
                 <img src="sim.jpg" alt="سیم‌پیچی">
                 <div class="detail-text">
                     <h2>سیم‌پیچی و الکتروموتورهای صنعتی</h2>
-                    <p>جزئیات کامل و سوابق اجرایی:</p>
+                    <p>در اینجا می‌توانید هرچقدر که می‌خواهید مطالب، توضیحات فنی، مقالات یا جزئیات پروژه‌های سیم‌پیچی خود را بنویسید:</p>
                     <ul>
                         <li>بازپیچی تخصصی موتورهای AC و DC ولتاژ بالا و پایین</li>
                         <li>عایق‌کاری حرارتی و تست‌های دقیق الکتریکی</li>
@@ -159,7 +160,7 @@
                 <img src="float.jpg" alt="شیشه فلوت">
                 <div class="detail-text">
                     <h2>شیشه فلوت و ماشین‌آلات خط تولید</h2>
-                    <p>جزئیات فنی و خدمات خطوط شیشه فلوت:</p>
+                    <p>در این بخش می‌توانید مطالب کامل مربوط به خطوط شیشه فلوت، اورهال و تنظیمات مکانیکی را اضافه کنید:</p>
                     <ul>
                         <li>تنظیم مکانیکی خطوط تولید و حوضچه قلع (Tin Bath)</li>
                         <li>تعمیرات پیشگیرانه و اورهال اساسی ماشین‌آلات برش</li>
@@ -176,7 +177,7 @@
                 <img src="cable.jpg" alt="صنعت کابل">
                 <div class="detail-text">
                     <h2>صنعت کابل و تجهیزات دوار</h2>
-                    <p>خدمات تخصصی خطوط کابل‌سازی:</p>
+                    <p>محل درج مقالات، سوابق و توضیحات کامل درباره ماشین‌آلات صنعت کابل‌سازی:</p>
                     <ul>
                         <li>نصب، تنظیم و راه‌اندازی ماشین‌آلات تابندگی و اکسترودر</li>
                         <li>سرویس دوره‌ای شفت‌ها و سیستم‌های انتقال نیرو</li>
@@ -193,7 +194,7 @@
                 <img src="steel.jpg" alt="صنعت فولاد">
                 <div class="detail-text">
                     <h2>صنعت فولاد و تجهیزات سنگین</h2>
-                    <p>سوابق اجرایی در کارخانجات فولادسازی:</p>
+                    <p>محل درج مستندات، پروژه‌ها و مطالب تخصصی خطوط نورد و فولادسازی:</p>
                     <ul>
                         <li>نصب و کمیسیونینگ تجهیزات سنگین خط نورد</li>
                         <li>تعمیرات اساسی جک‌ها و سیستم‌های هیدرولیک</li>
@@ -210,7 +211,7 @@
                 <img src="bottle.jpg" alt="شیشه دارویی">
                 <div class="detail-text">
                     <h2>شیشه دارویی و ماشین‌آلات حساس</h2>
-                    <p>سرویس و نگهداری تخصصی خطوط حساس:</p>
+                    <p>محل درج اطلاعات تخصصی، سرویس و نگهداری تجهیزات تولید ظروف دارویی:</p>
                     <ul>
                         <li>نگهداری و تنظیم ماشین‌آلات فرم‌دهی شیشه دارویی</li>
                         <li>رعایت تلرانس‌های دقیق مکانیکی</li>
@@ -226,7 +227,7 @@
         <a href="tel:09193890454" class="btn">تماس با من: ۰۹۱۹۳۸۹۰۴۵۴</a>
     </section>
 
-    <!-- اسکریپت جاوااسکریپت برای رفت و برگشت به کارت‌ها -->
+    <!-- اسکریپت جاوااسکریپت -->
     <script>
         function openSection(sectionId) {
             document.getElementById('main-projects').style.display = 'none';
