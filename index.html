@@ -84,13 +84,13 @@
         .hero h2 { font-size: 2rem; color: #e67e22; margin-bottom: 8px; font-weight: 700; }
         .hero p { color: #94a3b8; font-size: 1.05rem; }
 
-        /* ساختار کلی صفحه (سایدبار حرفه‌ای و محتوا) */
+        /* ساختار کلی صفحه (محتوا در چپ، سایدبار منو در راست) */
         .main-layout {
-            max-width: 1250px;
+            max-width: 1300px;
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 1fr 310px;
             gap: 30px;
         }
 
@@ -98,89 +98,93 @@
             .main-layout { grid-template-columns: 1fr; }
         }
 
-        /* سایدبار حرفه‌ای */
+        .content-area { min-height: 450px; }
+
+        /* سایدبار حرفه‌ای در سمت راست */
         .sidebar {
-            background: #131b2e;
+            background: linear-gradient(145deg, #131b2e, #0f172a);
             border: 1px solid #1e293b;
-            border-radius: 12px;
-            padding: 22px;
+            border-radius: 14px;
+            padding: 24px;
             height: fit-content;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
         .sidebar-title-box {
             font-size: 0.95rem;
             color: #e67e22;
             margin-bottom: 12px;
-            padding-bottom: 6px;
+            padding-bottom: 8px;
             border-bottom: 2px solid #1e293b;
             font-weight: bold;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        .sidebar-menu { display: flex; flex-direction: column; gap: 8px; margin-bottom: 25px; }
+        .sidebar-menu { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
         .sidebar-menu:last-child { margin-bottom: 0; }
         
         .sidebar-btn {
-            background: #0f172a;
+            background: #0b131e;
             color: #cbd5e1;
             border: 1px solid #1e293b;
-            padding: 13px 16px;
+            padding: 14px 18px;
             border-radius: 8px;
             text-align: right;
             cursor: pointer;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             font-family: Tahoma, sans-serif;
             display: flex;
             align-items: center;
             gap: 10px;
             width: 100%;
             text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         .sidebar-btn:hover {
             background: #e67e22;
             border-color: #e67e22;
             color: #fff;
-            padding-right: 20px;
-            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.3);
+            padding-right: 22px;
+            box-shadow: 0 6px 15px rgba(230, 126, 34, 0.35);
         }
 
-        .content-area { min-height: 450px; }
-
-        /* کارت‌های جدول خدمات (طراحی جدید و مدرن) */
+        /* ۵ کارت خدمات ثابت بالا (فقط تصویر فاقد متن اضافی) */
         .projects { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); 
-            gap: 20px; 
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 15px; 
+            margin-bottom: 35px;
+        }
+        @media (max-width: 850px) {
+            .projects { grid-template-columns: repeat(2, 1fr); }
         }
         .card { 
             background: #131b2e; 
-            border: 1px solid #1e293b; 
+            border: 2px solid #1e293b; 
             border-radius: 12px; 
             overflow: hidden; 
-            text-align: center; 
             cursor: pointer; 
             transition: all 0.3s ease;
             box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            height: 125px;
         }
         .card:hover { 
             border-color: #e67e22; 
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(230, 126, 34, 0.2);
+            box-shadow: 0 12px 25px rgba(230, 126, 34, 0.25);
         }
-        .card img { width: 100%; height: 145px; object-fit: cover; border-bottom: 2px solid #1e293b; }
-        .card h4 { padding: 15px; color: #fff; font-size: 1.05rem; font-weight: bold; background: #131b2e; }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
 
         /* صفحات داخلی مطالب و مقالات */
         .detail-section, .page-section {
             display: none;
             background: #131b2e;
             border: 1px solid #1e293b;
-            border-radius: 12px;
+            border-radius: 14px;
             padding: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             animation: fadeIn 0.4s ease;
         }
 
@@ -193,8 +197,8 @@
             background: #1e293b;
             color: #cbd5e1;
             border: 1px solid #334155;
-            padding: 9px 18px;
-            border-radius: 6px;
+            padding: 10px 20px;
+            border-radius: 8px;
             cursor: pointer;
             font-weight: bold;
             margin-bottom: 25px;
@@ -206,7 +210,7 @@
         .article-content h2 { color: #e67e22; margin-bottom: 18px; font-size: 1.7rem; border-bottom: 2px solid #1e293b; padding-bottom: 12px; }
         .main-img {
             width: 100%;
-            max-height: 340px;
+            max-height: 350px;
             object-fit: cover;
             border-radius: 10px;
             border: 1px solid #334155;
@@ -306,52 +310,28 @@
         <p>بیش از دو دهه تجربه در صنایع سنگین، فولاد و خطوط تولید شیشه</p>
     </section>
 
-    <!-- طرح اصلی دو ستونی حرفه‌ای -->
+    <!-- طرح اصلی دو ستونی (محتوا چپ، منو راست) -->
     <div class="main-layout">
-
-        <!-- سایدبار مدرن و حرفه‌ای -->
-        <aside class="sidebar">
-            <div class="sidebar-title-box">⚡ دسترسی سریع</div>
-            <div class="sidebar-menu">
-                <button class="sidebar-btn" onclick="showMainHome()">🏠 صفحه اصلی</button>
-                <button class="sidebar-btn" onclick="openPage('consultation-page')">💬 مشاوره فنی</button>
-                <button class="sidebar-btn" onclick="openPage('cooperation-page')">🤝 همکاری و انجام پروژه</button>
-            </div>
-
-            <div class="sidebar-title-box" style="margin-top: 20px;">⚙️ صنایع تخصصی</div>
-            <div class="sidebar-menu">
-                <button class="sidebar-btn" onclick="openSection('sim-section')">🔹 سیم‌پیچی موتورهای سنگین</button>
-                <button class="sidebar-btn" onclick="openSection('float-section')">🔹 شیشه فلوت (خط تولید)</button>
-                <button class="sidebar-btn" onclick="openSection('cable-section')">🔹 صنعت کابل و تجهیزات دوار</button>
-                <button class="sidebar-btn" onclick="openSection('steel-section')">🔹 صنعت فولاد (اورهال)</button>
-                <button class="sidebar-btn" onclick="openSection('bottle-section')">🔹 شیشه دارویی و بطری</button>
-            </div>
-        </aside>
 
         <!-- محتوای اصلی سایت -->
         <main class="content-area">
 
-            <!-- کارت‌های خدمات (جدول‌بندی حرفه‌ای) -->
-            <div id="main-projects" class="projects">
+            <!-- ۵ کارت خدمات ثابت بالا (فقط تصویر) -->
+            <div class="projects">
                 <div class="card" onclick="openSection('sim-section')">
                     <img src="sim.jpg" alt="سیم‌پیچی">
-                    <h4>سیم‌پیچی صنعتی</h4>
                 </div>
                 <div class="card" onclick="openSection('float-section')">
                     <img src="float.jpg" alt="شیشه فلوت">
-                    <h4>شیشه فلوت</h4>
                 </div>
                 <div class="card" onclick="openSection('cable-section')">
                     <img src="cable.jpg" alt="صنعت کابل">
-                    <h4>صنعت کابل</h4>
                 </div>
                 <div class="card" onclick="openSection('steel-section')">
                     <img src="steel.jpg" alt="صنعت فولاد">
-                    <h4>صنعت فولاد</h4>
                 </div>
                 <div class="card" onclick="openSection('bottle-section')">
                     <img src="bottle.jpg" alt="شیشه دارویی">
-                    <h4>شیشه دارویی</h4>
                 </div>
             </div>
 
@@ -359,7 +339,7 @@
 
             <!-- ۱. سیم‌پیچی -->
             <div id="sim-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت به صفحه اصلی</button>
+                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>سیم‌پیچی و الکتروموتورهای صنعتی</h2>
                     <img src="sim.jpg" class="main-img" alt="سیم‌پیچی">
@@ -379,7 +359,7 @@
 
             <!-- ۲. شیشه فلوت -->
             <div id="float-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت به صفحه اصلی</button>
+                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>شیشه فلوت و ماشین‌آلات خط تولید</h2>
                     <img src="float.jpg" class="main-img" alt="شیشه فلوت">
@@ -397,7 +377,7 @@
 
             <!-- ۳. صنعت کابل -->
             <div id="cable-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت به صفحه اصلی</button>
+                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>صنعت کابل و تجهیزات دوار</h2>
                     <img src="cable.jpg" class="main-img" alt="صنعت کابل">
@@ -415,7 +395,7 @@
 
             <!-- ۴. صنعت فولاد -->
             <div id="steel-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت به صفحه اصلی</button>
+                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>صنعت فولاد و تجهیزات سنگین</h2>
                     <img src="steel.jpg" class="main-img" alt="صنعت فولاد">
@@ -433,7 +413,7 @@
 
             <!-- ۵. شیشه دارویی -->
             <div id="bottle-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت به صفحه اصلی</button>
+                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>شیشه دارویی و ماشین‌آلات حساس</h2>
                     <img src="bottle.jpg" class="main-img" alt="شیشه دارویی">
@@ -451,7 +431,7 @@
 
             <!-- ================= صفحه اختصاصی: مشاوره فنی ================= -->
             <div id="consultation-page" class="page-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت به صفحه اصلی</button>
+                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>مشاوره فنی تخصصی تجهیزات صنعتی</h2>
                     <img src="gearbox-bearing.jpg" class="main-img" alt="مشاوره فنی و قطعات صنعتی">
@@ -477,7 +457,7 @@
 
             <!-- ================= صفحه اختصاصی: همکاری و انجام پروژه ================= -->
             <div id="cooperation-page" class="page-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت به صفحه اصلی</button>
+                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
                 <div class="article-content">
                     <h2>همکاری و انجام پروژه‌های صنعتی</h2>
                     <img src="cooperation.jpg" class="main-img" alt="همکاری و انجام پروژه">
@@ -503,6 +483,25 @@
 
         </main>
 
+        <!-- سایدبار مدرن و حرفه‌ای در سمت راست -->
+        <aside class="sidebar">
+            <div class="sidebar-title-box">⚡ دسترسی سریع</div>
+            <div class="sidebar-menu">
+                <button class="sidebar-btn" onclick="showMainHome()">🏠 صفحه اصلی</button>
+                <button class="sidebar-btn" onclick="openPage('consultation-page')">💬 مشاوره فنی</button>
+                <button class="sidebar-btn" onclick="openPage('cooperation-page')">🤝 همکاری و انجام پروژه</button>
+            </div>
+
+            <div class="sidebar-title-box" style="margin-top: 20px;">⚙️ صنایع تخصصی</div>
+            <div class="sidebar-menu">
+                <button class="sidebar-btn" onclick="openSection('sim-section')">🔹 سیم‌پیچی موتورهای سنگین</button>
+                <button class="sidebar-btn" onclick="openSection('float-section')">🔹 شیشه فلوت (خط تولید)</button>
+                <button class="sidebar-btn" onclick="openSection('cable-section')">🔹 صنعت کابل و تجهیزات دوار</button>
+                <button class="sidebar-btn" onclick="openSection('steel-section')">🔹 صنعت فولاد (اورهال)</button>
+                <button class="sidebar-btn" onclick="openSection('bottle-section')">🔹 شیشه دارویی و بطری</button>
+            </div>
+        </aside>
+
     </div>
 
     <section class="contact">
@@ -527,14 +526,12 @@
         }
 
         function hideAll() {
-            document.getElementById('main-projects').style.display = 'none';
             let sections = document.querySelectorAll('.detail-section, .page-section');
             sections.forEach(sec => sec.style.display = 'none');
         }
 
         function showMainHome() {
             hideAll();
-            document.getElementById('main-projects').style.display = 'grid';
             window.scrollTo({ top: 220, behavior: 'smooth' });
         }
 
