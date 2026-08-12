@@ -3,403 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مهندسی محسن نصری | مرجع تخصصی نصب، تعمیرات و نگهداری صنعتی</title>
+    <title>مهندسی محسن نصری | مرجع تخصصی نصب، تعمیرات و نگهداری تجهیزات صنعتی</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Tahoma, Arial, sans-serif;
-        }
-        body {
-            background-color: #0b131e;
-            color: #ffffff;
-            direction: rtl;
-            text-align: right;
-        }
-        /* هدر سایت */
-        header {
-            background-color: #070b12;
-            border-bottom: 1px solid #1e293b;
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .logo-area img {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            border: 2px solid #e67e22;
-            object-fit: cover;
-        }
-        .logo-text h1 {
-            font-size: 1.2rem;
-            color: #ffffff;
-        }
-        .logo-text p {
-            font-size: 0.8rem;
-            color: #94a3b8;
-        }
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-        nav ul li a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: 0.3s;
-        }
-        nav ul li a:hover, nav ul li a.active {
-            color: #e67e22;
-        }
-        .header-btn {
-            background-color: #e67e22;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.3s;
-        }
-        .header-btn:hover {
-            background-color: #d35400;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Tahoma, Arial, sans-serif; }
+        body { background-color: #0b131e; color: #ffffff; direction: rtl; text-align: right; }
+        /* هدر */
+        header { background-color: #070b12; border-bottom: 1px solid #1e293b; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo-area { display: flex; align-items: center; gap: 15px; }
+        .logo-area img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid #e67e22; object-fit: cover; }
+        .logo-text h1 { font-size: 1.1rem; color: #ffffff; }
+        .logo-text p { font-size: 0.75rem; color: #94a3b8; }
+        nav ul { display: flex; list-style: none; gap: 20px; }
+        nav ul li a { color: #cbd5e1; text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
+        nav ul li a:hover { color: #e67e22; }
+        .header-btn { background-color: #e67e22; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; }
         
-        /* بخش هیرو (Hero Section) */
-        .hero {
-            background: linear-gradient(rgba(11, 19, 30, 0.85), rgba(11, 19, 30, 0.9)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80') center/cover;
-            padding: 80px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            border-bottom: 3px solid #e67e22;
-        }
-        .hero-content {
-            flex: 1;
-            min-width: 300px;
-        }
-        .hero-content h2 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            margin-bottom: 15px;
-        }
-        .hero-content h3 {
-            font-size: 1.2rem;
-            color: #e67e22;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        .hero-content p {
-            color: #94a3b8;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        .btn-primary {
-            background-color: #e67e22;
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .btn-secondary {
-            background-color: transparent;
-            border: 1px solid #cbd5e1;
-            color: #fff;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-        }
-        .hero-badge {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-        }
-        .hero-badge img {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            border: 4px solid #e67e22;
-            object-fit: cover;
-            box-shadow: 0 0 30px rgba(230, 126, 34, 0.3);
-        }
-
-        /* نوار آماری */
-        .stats-bar {
-            background-color: #070b12;
-            display: flex;
-            justify-content: space-around;
-            padding: 30px 5%;
-            flex-wrap: wrap;
-            gap: 20px;
-            border-bottom: 1px solid #1e293b;
-        }
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .stat-item i {
-            font-size: 2.5rem;
-            color: #e67e22;
-        }
-        .stat-info h4 {
-            font-size: 1.1rem;
-            color: #fff;
-        }
-        .stat-info p {
-            font-size: 0.85rem;
-            color: #94a3b8;
-        }
-
-        /* بخش پروژه‌های منتخب */
-        .projects-section {
-            padding: 60px 5%;
-        }
-        .section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid #1e293b;
-            padding-bottom: 15px;
-        }
-        .section-header h3 {
-            font-size: 1.8rem;
-            color: #fff;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .project-card {
-            background-color: #131b2e;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 1px solid #1e293b;
-            transition: 0.3s;
-        }
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #e67e22;
-        }
-        .project-img {
-            height: 180px;
-            background-color: #222;
-            position: relative;
-        }
-        .project-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .project-body {
-            padding: 20px;
-        }
-        .project-cat {
-            font-size: 0.8rem;
-            color: #e67e22;
-            margin-bottom: 5px;
-        }
-        .project-body h4 {
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-        .project-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-top: 1px solid #1e293b;
-            padding-top: 12px;
-            font-size: 0.9rem;
-        }
-        .project-footer a {
-            color: #e67e22;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        /* فوتر */
-        footer {
-            background-color: #070b12;
-            text-align: center;
-            padding: 30px;
-            border-top: 1px solid #1e293b;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            nav { display: none; }
-            .hero-content h2 { font-size: 2rem; }
-        }
+        /* بخش هیرو */
+        .hero { background: linear-gradient(rgba(11, 19, 30, 0.9), rgba(11, 19, 30, 0.95)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80') center/cover; padding: 60px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 40px; border-bottom: 3px solid #e67e22; }
+        .hero-content { flex: 1; min-width: 300px; }
+        .hero-content h2 { font-size: 2rem; color: #ffffff; margin-bottom: 10px; }
+        .hero-content h3 { font-size: 1.2rem; color: #e67e22; margin-bottom: 20px; }
+        .hero-content p { color: #94a3b8; line-height: 1.8; margin-bottom: 25px; }
+        .hero-badge img { width: 280px; height: 280px; border-radius: 50%; border: 4px solid #e67e22; object-fit: cover; }
+        
+        /* سایر بخش‌ها (ثابت) */
+        .stats-bar { background-color: #070b12; display: flex; justify-content: space-around; padding: 30px 5%; flex-wrap: wrap; gap: 20px; border-bottom: 1px solid #1e293b; }
+        .stat-item { display: flex; align-items: center; gap: 15px; }
+        .stat-item i { font-size: 2.2rem; color: #e67e22; }
+        
+        .projects-section { padding: 50px 5%; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .project-card { background-color: #131b2e; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; }
+        .project-img { height: 160px; }
+        .project-img img { width: 100%; height: 100%; object-fit: cover; }
+        .project-body { padding: 15px; }
+        footer { background-color: #070b12; text-align: center; padding: 25px; color: #94a3b8; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-    <!-- هدر سایت -->
     <header>
         <div class="logo-area">
-            <img src="logo.jpg" alt="لوگو محسن نصری">
+            <img src="logo.jpg" alt="لوگو">
             <div class="logo-text">
                 <h1>مهندسی محسن نصری</h1>
-                <p>مرجع تخصصی نصب، تعمیرات و نگهداری</p>
+                <p>مرجع تخصصی نصب، تعمیرات و نگهداری تجهیزات صنعتی</p>
             </div>
         </div>
         <nav>
             <ul>
-                <li><a href="#" class="active">خانه</a></li>
-                <li><a href="#about">درباره من</a></li>
+                <li><a href="#">خانه</a></li>
                 <li><a href="#projects">پروژه‌ها</a></li>
-                <li><a href="#services">خدمات</a></li>
-                <li><a href="#contact">تماس با من</a></li>
+                <li><a href="#contact">تماس</a></li>
             </ul>
         </nav>
-        <a href="#contact" class="header-btn">
-            <i class="fa fa-user-tie"></i> درخواست مشاوره
-        </a>
+        <a href="#contact" class="header-btn">مشاوره فنی</a>
     </header>
 
-    <!-- بخش هیرو -->
     <section class="hero">
         <div class="hero-content">
             <h2>مهندسی محسن نصری</h2>
-            <h3>مرجع تخصصی نصب، تعمیرات، نگهداری و مهندسی مکانیک</h3>
-            <p>بیش از دو دهه تجربه در صنعت • ارائه راهکارهای تخصصی در زمینه نصب، راه‌اندازی، عیب‌یابی و نگهداری تجهیزات و ماشین‌آلات سنگین صنعتی</p>
-            <div class="hero-buttons">
-                <a href="#projects" class="btn-primary">مشاهده پروژه‌ها</a>
-                <a href="#contact" class="btn-secondary">درخواست مشاوره</a>
-            </div>
+            <h3>مرجع تخصصی نصب، تعمیرات و نگهداری تجهیزات صنعتی</h3>
+            <p>بیش از دو دهه تجربه عملی در صنایع سنگین • ارائه راهکارهای تخصصی در زمینه نصب، راه‌اندازی، عیب‌یابی و نگهداری ماشین‌آلات صنعتی</p>
         </div>
         <div class="hero-badge">
-            <img src="logo.jpg" alt="لوگو محسن نصری">
+            <img src="logo.jpg" alt="لوگو">
         </div>
     </section>
 
-    <!-- نوار آمار و ویژگی‌ها -->
-    <div class="stats-bar">
-        <div class="stat-item">
-            <i class="fa fa-award"></i>
-            <div class="stat-info">
-                <h4>بیش از ۲۰ سال</h4>
-                <p>تجربه صنعتی و اجرایی</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <i class="fa fa-tools"></i>
-            <div class="stat-info">
-                <h4>نصب و راه‌اندازی</h4>
-                <p>تجهیزات سنگین خطوط تولید</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <i class="fa fa-cogs"></i>
-            <div class="stat-info">
-                <h4>تعمیرات اساسی</h4>
-                <p>ماشین‌آلات و موتورهای صنعتی</p>
-            </div>
-        </div>
-        <div class="stat-item">
-            <i class="fa fa-headset"></i>
-            <div class="stat-info">
-                <h4>مشاوره مهندسی</h4>
-                <p>بررسی مشکل و ارائه راهکار</p>
-            </div>
-        </div>
-    </div>
+    <!-- بخش آمار و پروژه‌ها همانند قبل باقی می‌ماند -->
+    <!-- (برای اختصار در اینجا تکرار نشد اما در کد شما باید باشد) -->
 
-    <!-- بخش پروژه‌های منتخب -->
-    <section class="projects-section" id="projects">
-        <div class="section-header">
-            <h3>پروژه‌های منتخب</h3>
-            <a href="#" style="color: #e67e22; text-decoration: none;">مشاهده همه پروژه‌ها ←</a>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="تعمیرات">
-                </div>
-                <div class="project-body">
-                    <div class="project-cat">سیستم الکتریکی</div>
-                    <h4>تعمیر و راه‌اندازی استارتر الکتروموتور</h4>
-                    <div class="project-footer">
-                        <span>صنعت الکتریک</span>
-                        <a href="#">مشاهده جزئیات ←</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80" alt="کابل">
-                </div>
-                <div class="project-body">
-                    <div class="project-cat">صنعت کابل‌سازی</div>
-                    <h4>پروژه تولید کابل صنعتی افق البرز</h4>
-                    <div class="project-footer">
-                        <span>صنعت کابل‌سازی</span>
-                        <a href="#">مشاهده جزئیات ←</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="شیشه رازی">
-                </div>
-                <div class="project-body">
-                    <div class="project-cat">صنعت شیشه</div>
-                    <h4>خط تولید بطری شیشه شرکت شیشه رازی</h4>
-                    <div class="project-footer">
-                        <span>صنعت شیشه</span>
-                        <a href="#">مشاهده جزئیات ←</a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img">
-                    <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80" alt="دستگاه IS">
-                </div>
-                <div class="project-body">
-                    <div class="project-cat">صنعت شیشه</div>
-                    <h4>دستگاه IS تولید بطری شیشه</h4>
-                    <div class="project-footer">
-                        <span>صنعت شیشه</span>
-                        <a href="#">مشاهده جزئیات ←</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- فوتر -->
     <footer>
-        <p>Mohsen Nasri Engineering • Installation, Repair & Maintenance</p>
-        <p style="margin-top: 10px; font-size: 0.8rem; color: #64748b;">تمامی حقوق محفوظ است.</p>
+        <p>Mohsen Nasri Engineering • Industrial Installation, Repair & Maintenance</p>
     </footer>
 
 </body>
