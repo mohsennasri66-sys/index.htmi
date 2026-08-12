@@ -7,21 +7,21 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Tahoma, Arial, sans-serif; }
         body { background-color: #0b131e; color: #ffffff; direction: rtl; text-align: right; }
         
-        /* استایل بنر صنعتی بالای سایت */
+        /* پس‌زمینه عکس صنعتی واقعی از اینترنت */
         .banner-container {
             width: 100%;
             height: 350px;
-            background-image: url('banner.jpg');
+            background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             position: relative;
         }
-        /* یک لایه تیره روی عکس می‌گذارد تا نوشته‌ها یا خطوط بهتر دیده شوند */
+        /* یک لایه تیره روی عکس می‌گذارد تا متن‌ها و هدر قشنگ‌تر دیده شوند */
         .banner-container::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(11, 19, 30, 0.6);
         }
         
         header { background-color: #070b12; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e67e22; }
@@ -44,7 +44,7 @@
         <a href="tel:09193890454" style="color:#e67e22; font-weight:bold; text-decoration:none;">۰۹۱۹۳۸۹۰۴۵۴</a>
     </header>
 
-    <!-- عکس صنعتی پشت زمینه بالای سایت -->
+    <!-- عکس پس‌زمینه صنعتی آماده -->
     <div class="banner-container"></div>
 
     <section class="hero">
