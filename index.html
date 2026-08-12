@@ -2,68 +2,275 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>مهندسی محسن نصری | تجهیزات صنعتی</title>
+    <title>مهندسی محسن نصری | مرجع تخصصی خدمات صنعتی</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Tahoma, Arial, sans-serif; }
-        body { background-color: #0b131e; color: #ffffff; direction: rtl; text-align: right; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
+        body { background-color: #0b131e; color: #fff; direction: rtl; line-height: 1.6; }
         
-        /* پس‌زمینه عکس صنعتی واقعی از اینترنت */
-        .banner-container {
+        header { background: #070b12; padding: 25px 20px; text-align: center; border-bottom: 2px solid #e67e22; }
+        h1 { color: #e67e22; margin-bottom: 5px; font-size: 1.8rem; }
+        header p { color: #94a3b8; font-size: 0.95rem; }
+
+        .container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
+        
+        /* نمای اصلی (تیترها و کارت‌ها) */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .menu-card {
+            background: #131b2e;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 25px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 4px solid #e67e22;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            background: #1a233a;
+            border-color: #f39c12;
+        }
+
+        .menu-card h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-top: 10px;
+        }
+
+        /* نمای داخلی (وقتی رفت داخل مطلب) */
+        .detail-section {
+            display: none;
+            background: #131b2e;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 30px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-btn {
+            background: #334155;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-family: Tahoma, sans-serif;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background: #475569;
+        }
+
+        .detail-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 25px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .detail-content { grid-template-columns: 1fr; }
+        }
+
+        .detail-content img {
             width: 100%;
-            height: 350px;
-            background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1600&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            position: relative;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #334155;
         }
-        /* یک لایه تیره روی عکس می‌گذارد تا متن‌ها و هدر قشنگ‌تر دیده شوند */
-        .banner-container::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(11, 19, 30, 0.6);
+
+        .detail-text h2 {
+            color: #e67e22;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
         }
-        
-        header { background-color: #070b12; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e67e22; }
-        .hero { background: #0f172a; padding: 30px 5%; text-align: center; border-bottom: 3px solid #e67e22; }
-        .hero h2 { font-size: 2rem; color: #e67e22; margin-bottom: 10px; }
-        
-        .projects { padding: 30px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
-        .card { background: #131b2e; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; text-align: center; }
-        .card img { width: 100%; height: 140px; object-fit: cover; }
-        .card h4 { padding: 15px; color: #fff; }
-        .contact { padding: 40px; text-align: center; background: #070b12; }
+
+        .detail-text ul {
+            padding-right: 20px;
+            color: #cbd5e1;
+            margin-top: 10px;
+        }
+
+        .detail-text ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer { text-align: center; padding: 30px; background: #070b12; margin-top: 40px; border-top: 1px solid #1e293b; }
         .btn { background: #e67e22; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; }
     </style>
 </head>
 <body>
 
-    <!-- هدر سایت -->
     <header>
         <h1>مهندسی محسن نصری</h1>
-        <a href="tel:09193890454" style="color:#e67e22; font-weight:bold; text-decoration:none;">۰۹۱۹۳۸۹۰۴۵۴</a>
+        <p>مرجع تخصصی نصب، تعمیر و نگهداری تجهیزات صنایع سنگین</p>
     </header>
 
-    <!-- عکس پس‌زمینه صنعتی آماده -->
-    <div class="banner-container"></div>
+    <div class="container">
 
-    <section class="hero">
-        <h2>مرجع تخصصی نصب و تعمیرات تجهیزات صنعتی</h2>
-        <p>بیش از دو دهه تجربه در صنایع سنگین</p>
-    </section>
+        <!-- صفحه اصلی: لیست تیترها (منوی اصلی) -->
+        <div id="main-menu" class="menu-grid">
+            <div class="menu-card" onclick="openSection('sim-section')">
+                <span style="font-size: 2.5rem;">⚡</span>
+                <h3>سیم‌پیچی</h3>
+            </div>
+            <div class="menu-card" onclick="openSection('float-section')">
+                <span style="font-size: 2.5rem;">🏭</span>
+                <h3>شیشه فلوت</h3>
+            </div>
+            <div class="menu-card" onclick="openSection('cable-section')">
+                <span style="font-size: 2.5rem;">🔌</span>
+                <h3>صنعت کابل</h3>
+            </div>
+            <div class="menu-card" onclick="openSection('steel-section')">
+                <span style="font-size: 2.5rem;">🏗️</span>
+                <h3>صنعت فولاد</h3>
+            </div>
+            <div class="menu-card" onclick="openSection('bottle-section')">
+                <span style="font-size: 2.5rem;">🧪</span>
+                <h3>شیشه دارویی</h3>
+            </div>
+        </div>
 
-    <!-- ۵ بخش تخصصی پایین -->
-    <section class="projects">
-        <div class="card"><img src="sim.jpg"><h4 style="margin-top:-5px">سیم‌پیچی</h4></div>
-        <div class="card"><img src="float.jpg"><h4 style="margin-top:-5px">شیشه فلوت</h4></div>
-        <div class="card"><img src="cable.jpg"><h4 style="margin-top:-5px">صنعت کابل</h4></div>
-        <div class="card"><img src="steel.jpg"><h4 style="margin-top:-5px">صنعت فولاد</h4></div>
-        <div class="card"><img src="bottle.jpg"><h4 style="margin-top:-5px">شیشه دارویی</h4></div>
-    </section>
+        <!-- ---------------- صفحات داخلی (محتوا، عکس و جزئیات هر بخش) ---------------- -->
 
-    <section class="contact">
-        <a href="tel:09193890454" class="btn">تماس با من: ۰۹۱۹۳۸۹۰۴۵۴</a>
-    </section>
+        <!-- ۱. سیم‌پیچی -->
+        <div id="sim-section" class="detail-section">
+            <button class="back-btn" onclick="goBack()">← بازگشت به لیست اصلی</button>
+            <div class="detail-content">
+                <img src="sim.jpg" alt="سیم‌پیچی">
+                <div class="detail-text">
+                    <h2>سیم‌پیچی و الکتروموتورهای صنعتی</h2>
+                    <p>توضیحات جامع و سوابق اجرایی در زمینه بازپیچی و بهینه‌سازی الکتروموتورهای سنگین:</p>
+                    <ul>
+                        <li>بازپیچی تخصصی موتورهای AC و DC ولتاژ بالا و پایین با استانداردهای روز</li>
+                        <li>عایق‌کاری حرارتی پیشرفته و تست‌های دقیق الکتریکی</li>
+                        <li>رفع اتصالی، بالانس مکانیکی روتور و تعویض بلبرینگ‌های صنعتی سنگین</li>
+                        <li>اجرای پروژه‌های موفق در کارخانجات بزرگ فولاد، سیمان و صنایع وابسته</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ۲. شیشه فلوت -->
+        <div id="float-section" class="detail-section">
+            <button class="back-btn" onclick="goBack()">← بازگشت به لیست اصلی</button>
+            <div class="detail-content">
+                <img src="float.jpg" alt="شیشه فلوت">
+                <div class="detail-text">
+                    <h2>شیشه فلوت و ماشین‌آلات خط تولید</h2>
+                    <p>جزئیات فنی و خدمات تخصصی خطوط تولید شیشه فلوت:</p>
+                    <ul>
+                        <li>تنظیم مکانیکی دقیق خطوط تولید و حوضچه قلع (Tin Bath)</li>
+                        <li>تعمیرات پیشگیرانه و اورهال اساسی ماشین‌آلات برش و انتقال شیشه</li>
+                        <li>عیب‌یابی تخصصی سیستم‌های محرک و گیربکس‌های حساس خط تولید</li>
+                        <li>بهینه‌سازی عملکرد جهت جلوگیری از توقفات ناخواسته خطوط</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ۳. صنعت کابل -->
+        <div id="cable-section" class="detail-section">
+            <button class="back-btn" onclick="goBack()">← بازگشت به لیست اصلی</button>
+            <div class="detail-content">
+                <img src="cable.jpg" alt="صنعت کابل">
+                <div class="detail-text">
+                    <h2>صنعت کابل و تجهیزات دوار</h2>
+                    <p>تخصص‌های اجرایی در خطوط تولید و ماشین‌آلات صنعت کابل‌سازی:</p>
+                    <ul>
+                        <li>نصب، تنظیم و راه‌اندازی ماشین‌آلات تابندگی و اکسترودر</li>
+                        <li>سرویس دوره‌ای شفت‌ها، یاتاقان‌ها و سیستم‌های انتقال نیرو</li>
+                        <li>رفع لرزش‌های مکانیکی و تراز لیزری دقیق تجهیزات دوار</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ۴. صنعت فولاد -->
+        <div id="steel-section" class="detail-section">
+            <button class="back-btn" onclick="goBack()">← بازگشت به لیست اصلی</button>
+            <div class="detail-content">
+                <img src="steel.jpg" alt="صنعت فولاد">
+                <div class="detail-text">
+                    <h2>صنعت فولاد و تجهیزات سنگین</h2>
+                    <p>خدمات تخصصی در حوزه نصب و تعمیرات خطوط فولادسازی و نورد:</p>
+                    <ul>
+                        <li>نصب و کمیسیونینگ تجهیزات سنگین خط نورد و فولادسازی</li>
+                        <li>تعمیرات اساسی جک‌ها، پمپ‌ها و سیستم‌های هیدرولیک و مکانیکی فشرده</li>
+                        <li>مدیریت و نظارت بر تیم‌های فنی در پروژه‌های اورهال سنگین کارخانجات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ۵. شیشه دارویی -->
+        <div id="bottle-section" class="detail-section">
+            <button class="back-btn" onclick="goBack()">← بازگشت به لیست اصلی</button>
+            <div class="detail-content">
+                <img src="bottle.jpg" alt="شیشه دارویی">
+                <div class="detail-text">
+                    <h2>شیشه دارویی و ماشین‌آلات حساس</h2>
+                    <p>سرویس، نگهداری و اورهال تجهیزات حساس تولید ظروف دارویی (آمپول و ویال):</p>
+                    <ul>
+                        <li>نگهداری و تنظیم دقیق ماشین‌آلات فرم‌دهی شیشه دارویی</li>
+                        <li>رعایت تلرانس‌های بسیار دقیق مکانیکی برای قطعات حساس و دور بالا</li>
+                        <li>عیب‌یابی سریع قطعات دوار جهت حذف کامل ضایعات تولید</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <a href="tel:09193890454" class="btn">تماس مستقیم با مهندس نصری: ۰۹۱۹۳۸۹۰۴۵۴</a>
+    </div>
+
+    <!-- اسکریپت جاوااسکریپت برای مدیریت رفت و برگشت صفحات -->
+    <script>
+        function openSection(sectionId) {
+            // مخفی کردن منوی اصلی
+            document.getElementById('main-menu').style.display = 'none';
+            
+            // مخفی کردن تمام بخش‌های جزئیات دیگر (اگر باز بودند)
+            let sections = document.querySelectorAll('.detail-section');
+            sections.forEach(sec => sec.style.display = 'none');
+            
+            // نمایش دادن فقط بخش انتخاب شده
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // اسکرول صفحه به بالا برای راحتی کاربر
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goBack() {
+            // مخفی کردن تمام بخش‌های جزئیات
+            let sections = document.querySelectorAll('.detail-section');
+            sections.forEach(sec => sec.style.display = 'none');
+            
+            // نمایش دوباره منوی اصلی (تیترها)
+            document.getElementById('main-menu').style.display = 'grid';
+            
+            // اسکرول به بالا
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
