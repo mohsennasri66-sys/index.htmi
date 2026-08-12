@@ -100,7 +100,7 @@
 
         .content-area { min-height: 450px; }
 
-        /* سایدبار حرفه‌ای در سمت راست */
+        /* سایدبار حرفه‌ای در سمت راست (فقط دسترسی سریع) */
         .sidebar {
             background: linear-gradient(145deg, #131b2e, #0f172a);
             border: 1px solid #1e293b;
@@ -120,8 +120,7 @@
             align-items: center;
             gap: 8px;
         }
-        .sidebar-menu { display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
-        .sidebar-menu:last-child { margin-bottom: 0; }
+        .sidebar-menu { display: flex; flex-direction: column; gap: 10px; }
         
         .sidebar-btn {
             background: #0b131e;
@@ -150,14 +149,14 @@
             box-shadow: 0 6px 15px rgba(230, 126, 34, 0.35);
         }
 
-        /* ۵ کارت خدمات ثابت بالا (فقط تصویر فاقد متن اضافی) */
+        /* ۵ کارت خدمات ثابت بالا با عنوان مشخص زیر هر عکس */
         .projects { 
             display: grid; 
             grid-template-columns: repeat(5, 1fr); 
             gap: 15px; 
             margin-bottom: 35px;
         }
-        @media (max-width: 850px) {
+        @media (max-width: 900px) {
             .projects { grid-template-columns: repeat(2, 1fr); }
         }
         .card { 
@@ -168,14 +167,23 @@
             cursor: pointer; 
             transition: all 0.3s ease;
             box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-            height: 125px;
+            text-align: center;
         }
         .card:hover { 
             border-color: #e67e22; 
             transform: translateY(-5px);
             box-shadow: 0 12px 25px rgba(230, 126, 34, 0.25);
         }
-        .card img { width: 100%; height: 100%; object-fit: cover; }
+        .card img { width: 100%; height: 115px; object-fit: cover; border-bottom: 1px solid #1e293b; }
+        .card h4 {
+            padding: 10px 5px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            font-weight: bold;
+            background: #131b2e;
+            transition: 0.2s;
+        }
+        .card:hover h4 { color: #e67e22; }
 
         /* صفحات داخلی مطالب و مقالات */
         .detail-section, .page-section {
@@ -316,22 +324,27 @@
         <!-- محتوای اصلی سایت -->
         <main class="content-area">
 
-            <!-- ۵ کارت خدمات ثابت بالا (فقط تصویر) -->
+            <!-- ۵ کارت خدمات ثابت بالا با نام صنعت زیر هر عکس -->
             <div class="projects">
                 <div class="card" onclick="openSection('sim-section')">
                     <img src="sim.jpg" alt="سیم‌پیچی">
+                    <h4>سیم‌پیچی</h4>
                 </div>
                 <div class="card" onclick="openSection('float-section')">
                     <img src="float.jpg" alt="شیشه فلوت">
+                    <h4>شیشه فلوت</h4>
                 </div>
                 <div class="card" onclick="openSection('cable-section')">
                     <img src="cable.jpg" alt="صنعت کابل">
+                    <h4>صنعت کابل</h4>
                 </div>
                 <div class="card" onclick="openSection('steel-section')">
                     <img src="steel.jpg" alt="صنعت فولاد">
+                    <h4>صنعت فولاد</h4>
                 </div>
                 <div class="card" onclick="openSection('bottle-section')">
                     <img src="bottle.jpg" alt="شیشه دارویی">
+                    <h4>شیشه دارویی</h4>
                 </div>
             </div>
 
@@ -483,22 +496,13 @@
 
         </main>
 
-        <!-- سایدبار مدرن و حرفه‌ای در سمت راست -->
+        <!-- سایدبار مدرن و حرفه‌ای در سمت راست (فقط دسترسی سریع) -->
         <aside class="sidebar">
             <div class="sidebar-title-box">⚡ دسترسی سریع</div>
             <div class="sidebar-menu">
                 <button class="sidebar-btn" onclick="showMainHome()">🏠 صفحه اصلی</button>
                 <button class="sidebar-btn" onclick="openPage('consultation-page')">💬 مشاوره فنی</button>
                 <button class="sidebar-btn" onclick="openPage('cooperation-page')">🤝 همکاری و انجام پروژه</button>
-            </div>
-
-            <div class="sidebar-title-box" style="margin-top: 20px;">⚙️ صنایع تخصصی</div>
-            <div class="sidebar-menu">
-                <button class="sidebar-btn" onclick="openSection('sim-section')">🔹 سیم‌پیچی موتورهای سنگین</button>
-                <button class="sidebar-btn" onclick="openSection('float-section')">🔹 شیشه فلوت (خط تولید)</button>
-                <button class="sidebar-btn" onclick="openSection('cable-section')">🔹 صنعت کابل و تجهیزات دوار</button>
-                <button class="sidebar-btn" onclick="openSection('steel-section')">🔹 صنعت فولاد (اورهال)</button>
-                <button class="sidebar-btn" onclick="openSection('bottle-section')">🔹 شیشه دارویی و بطری</button>
             </div>
         </aside>
 
