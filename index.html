@@ -2,577 +2,459 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>مهندسی محسن نصری | تجهیزات صنعتی</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مهندسی محسن نصری | تعمیرات و تجهیزات صنعتی</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
-        body { background-color: #0b131e; color: #e2e8f0; direction: rtl; line-height: 1.7; text-align: right; }
+        body { background-color: #0d1117; color: #e6edf3; direction: rtl; line-height: 1.8; text-align: right; }
         
-        /* هدر حرفه‌ای بالای سایت */
-        header { background-color: #070b12; padding: 18px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #e67e22; flex-wrap: wrap; gap: 10px; position: relative; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        header h1 { font-size: 1.6rem; color: #fff; letter-spacing: 0.5px; }
+        /* هدر اصلی سایت */
+        header { background-color: #010409; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #ff9800; flex-wrap: wrap; gap: 15px; box-shadow: 0 4px 20px rgba(0,0,0,0.6); position: sticky; top: 0; z-index: 1000; }
+        .logo-area h1 { font-size: 1.7rem; color: #fff; letter-spacing: 0.5px; }
+        .logo-area span { color: #ff9800; font-size: 0.95rem; display: block; margin-top: 3px; }
 
-        /* منوی کشویی تماس با ما در هدر */
-        .contact-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .contact-drop-btn {
-            background: linear-gradient(135deg, #131b2e, #1a263f);
-            color: #e67e22;
-            border: 1px solid #e67e22;
-            padding: 10px 22px;
+        /* منوی هدر و دکمه تماس */
+        .header-nav { display: flex; align-items: center; gap: 15px; }
+        .contact-dropdown { position: relative; display: inline-block; }
+        .contact-btn {
+            background: linear-gradient(135deg, #ff9800, #e65100);
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
             font-size: 0.95rem;
-            font-family: Tahoma, sans-serif;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(230, 126, 34, 0.2);
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
         }
-        .contact-drop-btn:hover {
-            background: #e67e22;
-            color: #fff;
-            transform: translateY(-2px);
-        }
+        .contact-btn:hover { background: linear-gradient(135deg, #f57c00, #bf360c); transform: translateY(-2px); }
+        
         .contact-drop-content {
             display: none;
             position: absolute;
             left: 0;
-            background-color: #131b2e;
-            min-width: 260px;
-            box-shadow: 0px 10px 25px rgba(0,0,0,0.6);
-            border: 1px solid #e67e22;
+            top: 50px;
+            background-color: #161b22;
+            min-width: 280px;
+            box-shadow: 0px 10px 30px rgba(0,0,0,0.7);
+            border: 1px solid #30363d;
             border-radius: 8px;
             z-index: 100;
             padding: 12px;
-            text-align: right;
         }
         .contact-drop-content a {
-            color: #cbd5e1;
-            padding: 12px 10px;
+            color: #c9d1d9;
+            padding: 12px;
             text-decoration: none;
             display: block;
             font-size: 0.9rem;
-            border-bottom: 1px solid #1e293b;
+            border-bottom: 1px solid #21262d;
             transition: 0.2s;
             border-radius: 4px;
         }
         .contact-drop-content a:last-child { border-bottom: none; }
-        .contact-drop-content a:hover {
-            color: #fff;
-            background: #e67e22;
-            padding-right: 15px;
-        }
+        .contact-drop-content a:hover { color: #fff; background: #ff9800; padding-right: 15px; }
 
-        /* بنر صنعتی با عکس ابزارآلات مکانیکی، چرخ‌دنده، بلبرینگ و آچار */
-        .banner-container {
+        /* بنر بزرگ صنعتی (عکس ابزارآلات دقیق، چرخ‌دنده و بلبرینگ) */
+        .banner {
             width: 100%;
-            height: 340px;
-            background-image: url('https://images.unsplash.com/photo-1530124566582-a618bc2615dc?auto=format&fit=crop&w=1600&q=80');
+            height: 420px;
+            background-image: linear-gradient(to bottom, rgba(13, 17, 23, 0.4), rgba(13, 17, 23, 0.9)), url('https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1600&q=80');
             background-size: cover;
             background-position: center;
-            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            border-bottom: 2px solid #30363d;
         }
-        .banner-container::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(11, 19, 30, 0.3), rgba(11, 19, 30, 0.8));
-        }
+        .banner-content max-width { max-width: 800px; }
+        .banner h2 { font-size: 2.4rem; color: #ff9800; margin-bottom: 15px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+        .banner p { font-size: 1.2rem; color: #c9d1d9; text-shadow: 0 2px 5px rgba(0,0,0,0.8); }
 
-        .hero { background: #0f172a; padding: 30px 5%; text-align: center; border-bottom: 2px solid #1e293b; }
-        .hero h2 { font-size: 2rem; color: #e67e22; margin-bottom: 8px; font-weight: 700; }
-        .hero p { color: #94a3b8; font-size: 1.05rem; }
-
-        /* ساختار کلی صفحه (محتوا در چپ، سایدبار منو در راست) */
-        .main-layout {
-            max-width: 1300px;
+        /* لایه‌بندی اصلی سایت (محتوا در چپ، سایدبار در راست مشابه الگوهای صنعتی) */
+        .main-container {
+            max-width: 1350px;
             margin: 40px auto;
             padding: 0 20px;
             display: grid;
-            grid-template-columns: 1fr 310px;
+            grid-template-columns: 1fr 320px;
             gap: 30px;
         }
-
         @media (max-width: 950px) {
-            .main-layout { grid-template-columns: 1fr; }
+            .main-container { grid-template-columns: 1fr; }
         }
 
-        .content-area { min-height: 450px; }
-
-        /* سایدبار حرفه‌ای در سمت راست (فقط دسترسی سریع) */
-        .sidebar {
-            background: linear-gradient(145deg, #131b2e, #0f172a);
-            border: 1px solid #1e293b;
-            border-radius: 14px;
-            padding: 24px;
-            height: fit-content;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        /* بخش خدمات و کارت‌ها */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
         }
-        .sidebar-title-box {
-            font-size: 0.95rem;
-            color: #e67e22;
-            margin-bottom: 12px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #1e293b;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: repeat(1, 1fr); }
         }
-        .sidebar-menu { display: flex; flex-direction: column; gap: 10px; }
-        
-        .sidebar-btn {
-            background: #0b131e;
-            color: #cbd5e1;
-            border: 1px solid #1e293b;
-            padding: 14px 18px;
-            border-radius: 8px;
-            text-align: right;
+        .service-card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            overflow: hidden;
             cursor: pointer;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            font-family: Tahoma, sans-serif;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            width: 100%;
-            text-decoration: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .sidebar-btn:hover {
-            background: #e67e22;
-            border-color: #e67e22;
-            color: #fff;
-            padding-right: 22px;
-            box-shadow: 0 6px 15px rgba(230, 126, 34, 0.35);
-        }
-
-        /* ۵ کارت خدمات ثابت بالا با نام صنعت زیر هر عکس */
-        .projects { 
-            display: grid; 
-            grid-template-columns: repeat(5, 1fr); 
-            gap: 15px; 
-            margin-bottom: 35px;
-        }
-        @media (max-width: 900px) {
-            .projects { grid-template-columns: repeat(2, 1fr); }
-        }
-        .card { 
-            background: #131b2e; 
-            border: 2px solid #1e293b; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            cursor: pointer; 
             transition: all 0.3s ease;
             box-shadow: 0 6px 15px rgba(0,0,0,0.3);
             text-align: center;
         }
-        .card:hover { 
-            border-color: #e67e22; 
+        .service-card:hover {
+            border-color: #ff9800;
             transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(230, 126, 34, 0.25);
+            box-shadow: 0 12px 25px rgba(255, 152, 0, 0.2);
         }
-        .card img { width: 100%; height: 115px; object-fit: cover; border-bottom: 1px solid #1e293b; }
-        .card h4 {
-            padding: 10px 5px;
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            font-weight: bold;
-            background: #131b2e;
-            transition: 0.2s;
-        }
-        .card:hover h4 { color: #e67e22; }
+        .service-card img { width: 100%; height: 150px; object-fit: cover; border-bottom: 1px solid #30363d; }
+        .service-card h3 { padding: 15px; font-size: 1.1rem; color: #fff; background: #161b22; }
+        .service-card:hover h3 { color: #ff9800; }
 
-        /* صفحات داخلی مطالب و مقالات */
-        .detail-section, .page-section {
+        /* محتوای صفحات داخلی و مقالات */
+        .content-box {
             display: none;
-            background: #131b2e;
-            border: 1px solid #1e293b;
-            border-radius: 14px;
-            padding: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            animation: fadeIn 0.4s ease;
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            animation: fadeIn 0.3s ease;
         }
-
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-
-        .back-btn {
-            background: #1e293b;
-            color: #cbd5e1;
-            border: 1px solid #334155;
+        .back-link {
+            background: #21262d;
+            color: #c9d1d9;
+            border: 1px solid #30363d;
             padding: 10px 20px;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
             margin-bottom: 25px;
-            font-family: Tahoma, sans-serif;
+            display: inline-block;
             transition: 0.2s;
         }
-        .back-btn:hover { background: #e67e22; color: #fff; border-color: #e67e22; }
+        .back-link:hover { background: #ff9800; color: #fff; border-color: #ff9800; }
 
-        .article-content h2 { color: #e67e22; margin-bottom: 18px; font-size: 1.7rem; border-bottom: 2px solid #1e293b; padding-bottom: 12px; }
-        .main-img {
-            width: 100%;
-            max-height: 350px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 1px solid #334155;
-            margin-bottom: 22px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        .content-box h2 { color: #ff9800; margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #21262d; padding-bottom: 10px; }
+        .article-img { width: 100%; max-height: 350px; object-fit: cover; border-radius: 8px; margin-bottom: 20px; border: 1px solid #30363d; }
+        .article-text p { margin-bottom: 15px; color: #c9d1d9; line-height: 1.9; }
+
+        /* سایدبار سمت راست */
+        .sidebar {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 25px;
+            height: fit-content;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
-
-        /* مطالب کشویی حرفه‌ای */
-        .post-list { margin-top: 20px; }
-        .post-item {
-            background: #0f172a;
-            border: 1px solid #1e293b;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        .post-item:hover { border-color: #ef4444; background: #161e31; }
-        .post-item:hover .post-title { color: #ef4444; }
-
-        .post-title {
-            padding: 16px 20px;
+        .sidebar h3 {
             font-size: 1.05rem;
-            color: #fff;
+            color: #ff9800;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #30363d;
+        }
+        .sidebar-menu { display: flex; flex-direction: column; gap: 10px; }
+        .sidebar-btn {
+            background: #0d1117;
+            color: #c9d1d9;
+            border: 1px solid #30363d;
+            padding: 14px;
+            border-radius: 8px;
+            text-align: right;
             cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             font-weight: bold;
+            font-size: 0.95rem;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
         }
-        .post-body {
-            display: none;
-            padding: 20px;
-            background: #070b12;
-            border-top: 1px solid #1e293b;
-            color: #cbd5e1;
-        }
-        .post-body p { margin-bottom: 15px; line-height: 1.8; }
+        .sidebar-btn:hover { background: #ff9800; border-color: #ff9800; color: #fff; padding-right: 18px; }
 
-        /* فرم‌ها و بخش‌های ویژه */
-        .form-group { margin-bottom: 20px; text-align: right; }
-        .form-group label { display: block; margin-bottom: 8px; color: #cbd5e1; font-size: 0.95rem; font-weight: 600; }
+        /* فرم‌های ثبت سفارش و مشاوره */
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; color: #e6edf3; font-weight: 600; }
         .form-control {
             width: 100%;
             padding: 14px;
-            background: #070b12;
-            border: 1px solid #334155;
+            background: #0d1117;
+            border: 1px solid #30363d;
             border-radius: 8px;
             color: #fff;
             font-family: Tahoma, sans-serif;
             font-size: 0.95rem;
-            transition: 0.3s;
         }
-        .form-control:focus { border-color: #e67e22; outline: none; box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15); }
-        
-        .submit-btn {
-            background: linear-gradient(135deg, #e67e22, #d35400);
+        .form-control:focus { border-color: #ff9800; outline: none; box-shadow: 0 0 0 3px rgba(255, 152, 0, 0.2); }
+        .submit-form-btn {
+            background: #ff9800;
             color: #fff;
             border: none;
-            padding: 14px 30px;
+            padding: 14px;
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
-            font-size: 1.05rem;
-            transition: 0.3s;
             width: 100%;
-            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+            font-size: 1rem;
+            transition: 0.3s;
         }
-        .submit-btn:hover { background: linear-gradient(135deg, #d35400, #b54600); transform: translateY(-2px); }
+        .submit-form-btn:hover { background: #f57c00; }
 
         /* فوتر سایت */
-        .contact { padding: 40px 20px; text-align: center; background: #070b12; margin-top: 50px; border-top: 3px solid #e67e22; }
-        .contact p { margin-top: 10px; color: #94a3b8; font-size: 0.95rem; }
-        .btn { background: #131b2e; color: #e67e22; border: 1px solid #e67e22; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin: 6px; transition: 0.3s; }
-        .btn:hover { background: #e67e22; color: #fff; }
+        footer { background: #010409; color: #8b949e; text-align: center; padding: 35px 20px; margin-top: 60px; border-top: 3px solid #ff9800; }
+        footer p { margin-bottom: 10px; font-size: 0.95rem; }
+        .footer-links { display: flex; justify-content: center; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; }
+        .footer-links a { color: #ff9800; text-decoration: none; font-weight: bold; }
+        .footer-links a:hover { text-decoration: underline; }
     </style>
 </head>
 <body>
 
+    <!-- هدر سایت -->
     <header>
-        <h1>مهندسی محسن نصری</h1>
-        <!-- منوی کشویی تماس با ما در هدر -->
-        <div class="contact-dropdown">
-            <button class="contact-drop-btn" onclick="toggleContactMenu(event)">📞 تماس با ما</button>
-            <div id="contactMenuBox" class="contact-drop-content">
-                <a href="tel:09193890454">تلفن: ۰۹۱۹۳۸۹۰۴۵۴</a>
-                <a href="mailto:mohsennasri66@gmail.com">ایمیل: mohsennasri66@gmail.com</a>
+        <div class="logo-area">
+            <h1>مهندسی محسن نصری</h1>
+            <span>مرجع تخصصی تعمیرات و تجهیزات صنایع سنگین</span>
+        </div>
+        <div class="header-nav">
+            <div class="contact-dropdown">
+                <button class="contact-btn" onclick="toggleMenu(event)">📞 ارتباط با ما</button>
+                <div id="contactDropdown" class="contact-drop-content">
+                    <a href="tel:09193890454">تلفن مستقیم: ۰۹۱۹۳۸۹۰۴۵۴</a>
+                    <a href="mailto:mohsennasri66@gmail.com">ایمیل: mohsennasri66@gmail.com</a>
+                </div>
             </div>
         </div>
     </header>
 
-    <div class="banner-container"></div>
-
-    <section class="hero">
-        <h2>مرجع تخصصی نصب و تعمیرات تجهیزات صنعتی</h2>
-        <p>بیش از دو دهه تجربه در صنایع سنگین، فولاد و خطوط تولید شیشه</p>
+    <!-- بنر اصلی صنعتی -->
+    <section class="banner">
+        <div class="banner-content">
+            <h2>تضمین پایداری و عملکرد بهینه تجهیزات صنعتی</h2>
+            <p>بیش از دو دهه تجربه تخصصی در نصب، راه اندازی و اورهال صنایع فولاد، شیشه و تجهیزات دوار</p>
+        </div>
     </section>
 
-    <!-- طرح اصلی دو ستونی (محتوا چپ، منو راست) -->
-    <div class="main-layout">
+    <!-- بدنه اصلی دو ستونی -->
+    <div class="main-container">
 
-        <!-- محتوای اصلی سایت -->
-        <main class="content-area">
-
-            <!-- ۵ کارت خدمات ثابت بالا با نام صنعت زیر هر عکس -->
-            <div class="projects">
-                <div class="card" onclick="openSection('sim-section')">
-                    <img src="sim.jpg" alt="سیم‌پیچی">
-                    <h4>سیم‌پیچی</h4>
-                </div>
-                <div class="card" onclick="openSection('float-section')">
-                    <img src="float.jpg" alt="شیشه فلوت">
-                    <h4>شیشه فلوت</h4>
-                </div>
-                <div class="card" onclick="openSection('cable-section')">
-                    <img src="cable.jpg" alt="صنعت کابل">
-                    <h4>صنعت کابل</h4>
-                </div>
-                <div class="card" onclick="openSection('steel-section')">
-                    <img src="steel.jpg" alt="صنعت فولاد">
-                    <h4>صنعت فولاد</h4>
-                </div>
-                <div class="card" onclick="openSection('bottle-section')">
-                    <img src="bottle.jpg" alt="شیشه دارویی">
-                    <h4>شیشه دارویی</h4>
-                </div>
-            </div>
-
-            <!-- ================= صفحات داخلی خدمات ================= -->
-
-            <!-- ۱. سیم‌پیچی -->
-            <div id="sim-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
-                <div class="article-content">
-                    <h2>سیم‌پیچی و الکتروموتورهای صنعتی</h2>
-                    <img src="sim.jpg" class="main-img" alt="سیم‌پیچی">
-                    <div class="post-list">
-                        <div class="post-item">
-                            <div class="post-title" onclick="togglePost(this)">
-                                <span>مطلب اول: بازپیچی موتورهای سنگین AC و DC</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="post-body">
-                                <p>توضیحات و جزئیات فنی بازپیچی استاتور، عایق‌بندی و تست‌های پیشرفته الکتریکی...</p>
-                            </div>
-                        </div>
+        <!-- بخش محتوا (چپ) -->
+        <main>
+            <!-- صفحه اصلی: کارت خدمات -->
+            <div id="home-view">
+                <div class="services-grid">
+                    <div class="service-card" onclick="showSection('sim-sec')">
+                        <img src="sim.jpg" alt="سیم‌پیچی">
+                        <h3>سیم‌پیچی موتورهای سنگین</h3>
+                    </div>
+                    <div class="service-card" onclick="showSection('float-sec')">
+                        <img src="float.jpg" alt="صنعت شیشه فلوت">
+                        <h3>ماشین‌آلات شیشه فلوت</h3>
+                    </div>
+                    <div class="service-card" onclick="showSection('steel-sec')">
+                        <img src="steel.jpg" alt="صنعت فولاد">
+                        <h3>تجهیزات و خطوط فولاد</h3>
+                    </div>
+                    <div class="service-card" onclick="showSection('cable-sec')">
+                        <img src="cable.jpg" alt="صنعت کابل">
+                        <h3>صنعت کابل و ماشین‌آلات</h3>
+                    </div>
+                    <div class="service-card" onclick="showSection('bottle-sec')">
+                        <img src="bottle.jpg" alt="شیشه دارویی">
+                        <h3>تجهیزات شیشه دارویی</h3>
+                    </div>
+                    <div class="service-card" onclick="openPage('consult-sec')">
+                        <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80" alt="مشاوره فنی">
+                        <h3>مشاوره فنی تخصصی</h3>
                     </div>
                 </div>
             </div>
 
-            <!-- ۲. شیشه فلوت -->
-            <div id="float-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
-                <div class="article-content">
-                    <h2>شیشه فلوت و ماشین‌آلات خط تولید</h2>
-                    <img src="float.jpg" class="main-img" alt="شیشه فلوت">
-                    <div class="post-list">
-                        <div class="post-item">
-                            <div class="post-title" onclick="togglePost(this)">
-                                <span>مطلب اول: تنظیم مکانیکی حوضچه قلع (Tin Bath)</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="post-body"><p>توضیحات تخصصی خط فلوت و مکانیزم‌های انتقال...</p></div>
-                        </div>
+            <!-- محتوای ۱: سیم‌پیچی -->
+            <div id="sim-sec" class="content-box">
+                <span class="back-link" onclick="goHome()">← بازگشت به صفحه اصلی</span>
+                <h2>سیم‌پیچی و الکتروموتورهای صنعتی</h2>
+                <img src="sim.jpg" class="article-img" alt="سیم‌پیچی">
+                <div class="article-text">
+                    <p>بازپیچی تخصصی انواع استاتورهای سنگین AC و DC، موتورهای فشار قوی و ضدانفجار با استفاده از مرغوب‌ترین متریال عایقی و وارنیش‌های نسوز صنعتی.</p>
+                    <p>تست‌های دقیق الکتریکی شامل مقاومت عایقی (Megger)، تست ولتاژ بالا و بالانس روتور جهت تضمین راندمان کامل تجهیزات در خطوط تولید مداوم.</p>
+                </div>
+            </div>
+
+            <!-- محتوای ۲: شیشه فلوت -->
+            <div id="float-sec" class="content-box">
+                <span class="back-link" onclick="goHome()">← بازگشت به صفحه اصلی</span>
+                <h2>خطوط تولید شیشه فلوت</h2>
+                <img src="float.jpg" class="article-img" alt="شیشه فلوت">
+                <div class="article-text">
+                    <p>سرویس، نگهداری و تنظیم مکانیکی ماشین‌آلات تخصصی حوضچه قلع (Tin Bath)، سیستم‌های انتقال و مکانیزم‌های دقیق برش و شکل‌دهی شیشه.</p>
+                </div>
+            </div>
+
+            <!-- محتوای ۳: صنعت فولاد -->
+            <div id="steel-sec" class="content-box">
+                <span class="back-link" onclick="goHome()">← بازگشت به صفحه اصلی</span>
+                <h2>تجهیزات سنگین صنعت فولاد</h2>
+                <img src="steel.jpg" class="article-img" alt="صنعت فولاد">
+                <div class="article-text">
+                    <p>خدمات اورهال کامل خطوط نورد، گیربکس‌های صنعتی سنگین، پمپ‌ها و فن‌های مکنده بزرگ با سابقه کار در کارخانجات معتبر فولادسازی کشور.</p>
+                </div>
+            </div>
+
+            <!-- محتوای ۴: صنعت کابل -->
+            <div id="cable-sec" class="content-box">
+                <span class="back-link" onclick="goHome()">← بازگشت به صفحه اصلی</span>
+                <h2>ماشین‌آلات صنعت کابل‌سازی</h2>
+                <img src="cable.jpg" class="article-img" alt="صنعت کابل">
+                <div class="article-text">
+                    <p>تراز لیزری، عیب‌یابی و تعمیرات اساسی تجهیزات دوار، اکسترودرها و سیستم‌های کشش سیم در کارخانجات تولید کابل.</p>
+                </div>
+            </div>
+
+            <!-- محتوای ۵: شیشه دارویی -->
+            <div id="bottle-sec" class="content-box">
+                <span class="back-link" onclick="goHome()">← بازگشت به صفحه اصلی</span>
+                <h2>ماشین‌آلات شیشه دارویی و بطری</h2>
+                <img src="bottle.jpg" class="article-img" alt="شیشه دارویی">
+                <div class="article-text">
+                    <p>تنظیمات مکانیکی دقیق بادامک‌ها، فیدرها و مکانیزم‌های فرم‌دهی قطعات حساس در خطوط تولید شیشه دارویی و بطری‌سازی.</p>
+                </div>
+            </div>
+
+            <!-- صفحه مشاوره فنی -->
+            <div id="consult-sec" class="content-box">
+                <span class="back-link" onclick="goHome()">← بازگشت به صفحه اصلی</span>
+                <h2>درخواست مشاوره فنی و تعمیرات</h2>
+                <div class="article-text">
+                    <p>جهت طرح مسائل فنی، عیب‌یابی تجهیزات کارخانه یا مشاوره تخصصی، فرم زیر را تکمیل نمایید تا مستقیماً به واتساپ متصل شوید.</p>
+                </div>
+                <form onsubmit="sendWhatsApp('مشاوره فنی', event)" style="margin-top: 20px;">
+                    <div class="form-group">
+                        <label>نام و نام خانوادگی / شرکت:</label>
+                        <input type="text" id="c-name" class="form-control" required placeholder="نام شما...">
                     </div>
-                </div>
-            </div>
-
-            <!-- ۳. صنعت کابل -->
-            <div id="cable-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
-                <div class="article-content">
-                    <h2>صنعت کابل و تجهیزات دوار</h2>
-                    <img src="cable.jpg" class="main-img" alt="صنعت کابل">
-                    <div class="post-list">
-                        <div class="post-item">
-                            <div class="post-title" onclick="togglePost(this)">
-                                <span>مطلب اول: تراز لیزری و سرویس اکسترودرها</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="post-body"><p>توضیحات فنی ماشین‌آلات صنعت کابل‌سازی...</p></div>
-                        </div>
+                    <div class="form-group">
+                        <label>شماره تماس:</label>
+                        <input type="tel" id="c-phone" class="form-control" required placeholder="۰۹...">
                     </div>
-                </div>
-            </div>
-
-            <!-- ۴. صنعت فولاد -->
-            <div id="steel-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
-                <div class="article-content">
-                    <h2>صنعت فولاد و تجهیزات سنگین</h2>
-                    <img src="steel.jpg" class="main-img" alt="صنعت فولاد">
-                    <div class="post-list">
-                        <div class="post-item">
-                            <div class="post-title" onclick="togglePost(this)">
-                                <span>مطلب اول: اورهال خط نورد و تجهیزات سنگین</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="post-body"><p>توضیحات درباره تعمیرات دوره‌ای و اورهال خطوط فولادسازی...</p></div>
-                        </div>
+                    <div class="form-group">
+                        <label>شرح مشکل یا درخواست:</label>
+                        <textarea id="c-msg" class="form-control" rows="4" required placeholder="توضیحات تجهیزات یا قطعه..."></textarea>
                     </div>
-                </div>
+                    <button type="submit" class="submit-form-btn">ارسال پیام به واتساپ</button>
+                </form>
             </div>
 
-            <!-- ۵. شیشه دارویی -->
-            <div id="bottle-section" class="detail-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
-                <div class="article-content">
-                    <h2>شیشه دارویی و ماشین‌آلات حساس</h2>
-                    <img src="bottle.jpg" class="main-img" alt="شیشه دارویی">
-                    <div class="post-list">
-                        <div class="post-item">
-                            <div class="post-title" onclick="togglePost(this)">
-                                <span>مطلب اول: تنظیم بادامک‌ها و فرم‌دهی آمپول و ویال</span>
-                                <span>▼</span>
-                            </div>
-                            <div class="post-body"><p>جزئیات مکانیکی دستگاه‌های فرم‌دهی شیشه دارویی...</p></div>
-                        </div>
+            <!-- صفحه همکاری و پروژه -->
+            <div id="project-sec" class="content-box">
+                <span class="back-link" onclick="goHome()">← بازگشت به صفحه اصلی</span>
+                <h2>ثبت درخواست پروژه و قرارداد همکاری</h2>
+                <div class="article-text">
+                    <p>آمادگی عقد قرارداد جهت اورهال، نصب و راه‌اندازی ماشین‌آلات سنگین صنعتی در سراسر کشور.</p>
+                </div>
+                <form onsubmit="sendWhatsApp('پیمانکاری و پروژه', event)" style="margin-top: 20px;">
+                    <div class="form-group">
+                        <label>نام شرکت / کارفرما:</label>
+                        <input type="text" id="p-name" class="form-control" required placeholder="نام شرکت...">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label>شماره تماس:</label>
+                        <input type="tel" id="p-phone" class="form-control" required placeholder="۰۹...">
+                    </div>
+                    <div class="form-group">
+                        <label>جزئیات پروژه و محل کارخانه:</label>
+                        <textarea id="p-msg" class="form-control" rows="4" required placeholder="شرح پروژه..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-form-btn">ارسال پیشنهاد همکاری</button>
+                </form>
             </div>
-
-            <!-- ================= صفحه اختصاصی: مشاوره فنی ================= -->
-            <div id="consultation-page" class="page-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
-                <div class="article-content">
-                    <h2>مشاوره فنی تخصصی تجهیزات صنعتی</h2>
-                    <img src="gearbox-bearing.jpg" class="main-img" alt="مشاوره فنی و قطعات صنعتی">
-                    <p>جهت دریافت مشاوره در زمینه عیب‌یابی، تعمیرات مکانیکی، گیربکس‌ها و تجهیزات صنعتی، فرم زیر را تکمیل نمایید.</p>
-                    
-                    <form onsubmit="sendWhatsApp('مشاوره فنی', event)" style="margin-top: 25px;">
-                        <div class="form-group">
-                            <label>نام و نام خانوادگی / شرکت:</label>
-                            <input type="text" id="consult-name" class="form-control" required placeholder="نام شما...">
-                        </div>
-                        <div class="form-group">
-                            <label>شماره تماس:</label>
-                            <input type="tel" id="consult-phone" class="form-control" required placeholder="۰۹...">
-                        </div>
-                        <div class="form-group">
-                            <label>شرح سوال یا مشکل فنی:</label>
-                            <textarea id="consult-msg" class="form-control" rows="4" required placeholder="توضیحات کامل درباره دستگاه یا مشکل..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">ارسال درخواست مشاوره</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- ================= صفحه اختصاصی: همکاری و انجام پروژه ================= -->
-            <div id="cooperation-page" class="page-section">
-                <button class="back-btn" onclick="showMainHome()">← بازگشت</button>
-                <div class="article-content">
-                    <h2>همکاری و انجام پروژه‌های صنعتی</h2>
-                    <img src="cooperation.jpg" class="main-img" alt="همکاری و انجام پروژه">
-                    <p>آماده عقد قرارداد و همکاری در پروژه‌های اورهال، نصب و راه‌اندازی ماشین‌آلات سنگین صنعتی.</p>
-                    
-                    <form onsubmit="sendWhatsApp('همکاری و پروژه', event)" style="margin-top: 25px;">
-                        <div class="form-group">
-                            <label>نام نماینده / شرکت:</label>
-                            <input type="text" id="coop-name" class="form-control" required placeholder="نام شرکت یا کارفرما...">
-                        </div>
-                        <div class="form-group">
-                            <label>شماره تماس:</label>
-                            <input type="tel" id="coop-phone" class="form-control" required placeholder="۰۹...">
-                        </div>
-                        <div class="form-group">
-                            <label>جزئیات پروژه (نوع دستگاه، محل کارخانه و مدت زمان):</label>
-                            <textarea id="coop-msg" class="form-control" rows="4" required placeholder="شرح پروژه پیشنهادی..."></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">ارسال پیشنهاد همکاری / پروژه</button>
-                    </form>
-                </div>
-            </div>
-
         </main>
 
-        <!-- سایدبار مدرن و حرفه‌ای در سمت راست (فقط دسترسی سریع) -->
+        <!-- سایدبار سمت راست (دسترسی سریع مشابه سایت‌های صنعتی) -->
         <aside class="sidebar">
-            <div class="sidebar-title-box">⚡ دسترسی سریع</div>
+            <h3>⚡ دسترسی سریع</h3>
             <div class="sidebar-menu">
-                <button class="sidebar-btn" onclick="showMainHome()">🏠 صفحه اصلی</button>
-                <button class="sidebar-btn" onclick="openPage('consultation-page')">💬 مشاوره فنی</button>
-                <button class="sidebar-btn" onclick="openPage('cooperation-page')">🤝 همکاری و انجام پروژه</button>
+                <button class="sidebar-btn" onclick="goHome()">🏠 صفحه اصلی</button>
+                <button class="sidebar-btn" onclick="openPage('consult-sec')">💬 مشاوره فنی رایگان</button>
+                <button class="sidebar-btn" onclick="openPage('project-sec')">🤝 عقد قرارداد و پروژه</button>
+                <button class="sidebar-btn" onclick="openPage('sim-sec')">⚙️ خدمات سیم‌پیچی</button>
             </div>
         </aside>
 
     </div>
 
-    <section class="contact">
-        <a href="tel:09193890454" class="btn">تلفن تماس: ۰۹۱۹۳۸۹۰۴۵۴</a>
-        <a href="mailto:mohsennasri66@gmail.com" class="btn">ارسال ایمیل رسمی</a>
-        <p>ایمیل: mohsennasri66@gmail.com | کلیه حقوق محفوظ است.</p>
-    </section>
+    <!-- فوتر سایت -->
+    <footer>
+        <div class="footer-links">
+            <a href="tel:09193890454">تلفن: ۰۹۱۹۳۸۹۰۴۵۴</a>
+            <a href="mailto:mohsennasri66@gmail.com">ایمیل: mohsennasri66@gmail.com</a>
+        </div>
+        <p>مهندسی محسن نصری | تخصصی‌ترین مرکز تعمیر و نگهداری تجهیزات صنایع سنگین</p>
+        <p>کلیه حقوق محفوظ است.</p>
+    </footer>
 
-    <!-- اسکریپت‌های کنترلی -->
+    <!-- کدهای اسکریپت کنترل صفحه -->
     <script>
-        function toggleContactMenu(event) {
+        function toggleMenu(event) {
             event.stopPropagation();
-            let menu = document.getElementById('contactMenuBox');
+            let menu = document.getElementById('contactDropdown');
             menu.style.display = (menu.style.display === "block") ? "none" : "block";
         }
-
-        window.onclick = function(event) {
-            let menu = document.getElementById('contactMenuBox');
-            if (menu && menu.style.display === "block") {
-                menu.style.display = "none";
-            }
+        window.onclick = function() {
+            let menu = document.getElementById('contactDropdown');
+            if(menu) menu.style.display = "none";
         }
 
-        function hideAll() {
-            let sections = document.querySelectorAll('.detail-section, .page-section');
-            sections.forEach(sec => sec.style.display = 'none');
+        function hideAllBoxes() {
+            document.getElementById('home-view').style.display = 'none';
+            let boxes = document.querySelectorAll('.content-box');
+            boxes.forEach(b => b.style.display = 'none');
         }
 
-        function showMainHome() {
-            hideAll();
-            window.scrollTo({ top: 220, behavior: 'smooth' });
+        function goHome() {
+            hideAllBoxes();
+            document.getElementById('home-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        function openSection(sectionId) {
-            hideAll();
-            document.getElementById(sectionId).style.display = 'block';
-            window.scrollTo({ top: 220, behavior: 'smooth' });
+        function showSection(id) {
+            hideAllBoxes();
+            document.getElementById(id).style.display = 'block';
+            window.scrollTo({ top: 250, behavior: 'smooth' });
         }
 
-        function openPage(pageId) {
-            hideAll();
-            document.getElementById(pageId).style.display = 'block';
-            window.scrollTo({ top: 220, behavior: 'smooth' });
-        }
-
-        function togglePost(element) {
-            let body = element.nextElementSibling;
-            body.style.display = (body.style.display === "block") ? "none" : "block";
+        function openPage(id) {
+            hideAllBoxes();
+            document.getElementById(id).style.display = 'block';
+            window.scrollTo({ top: 250, behavior: 'smooth' });
         }
 
         function sendWhatsApp(type, event) {
             event.preventDefault();
             let name, phone, msg;
             if(type === 'مشاوره فنی') {
-                name = document.getElementById('consult-name').value;
-                phone = document.getElementById('consult-phone').value;
-                msg = document.getElementById('consult-msg').value;
+                name = document.getElementById('c-name').value;
+                phone = document.getElementById('c-phone').value;
+                msg = document.getElementById('c-msg').value;
             } else {
-                name = document.getElementById('coop-name').value;
-                phone = document.getElementById('coop-phone').value;
-                msg = document.getElementById('coop-msg').value;
+                name = document.getElementById('p-name').value;
+                phone = document.getElementById('p-phone').value;
+                msg = document.getElementById('p-msg').value;
             }
-
-            let text = `سلام، درخواست ${type} جدید:%0Aنام: ${name}%0Aشماره: ${phone}%0Aمتن: ${msg}`;
+            let text = `سلام، درخواست ${type} جدید:%0Aنام: ${name}%0Aشماره: ${phone}%0Aتوضیحات: ${msg}`;
             window.open(`https://wa.me/989193890454?text=${text}`, '_blank');
         }
     </script>
-
 </body>
 </html>
