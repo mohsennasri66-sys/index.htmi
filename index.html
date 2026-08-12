@@ -2,78 +2,103 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مهندسی محسن نصری | مرجع تخصصی نصب، تعمیرات و نگهداری تجهیزات صنعتی</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Tahoma, Arial, sans-serif; }
         body { background-color: #0b131e; color: #ffffff; direction: rtl; text-align: right; }
-        header { background-color: #070b12; border-bottom: 1px solid #1e293b; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo-area { display: flex; align-items: center; gap: 15px; }
-        .logo-area img { width: 55px; height: 55px; border-radius: 50%; border: 2px solid #e67e22; object-fit: cover; }
-        .logo-text h1 { font-size: 1.1rem; }
+        
+        /* هدر */
+        header { background-color: #070b12; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #e67e22; position: sticky; top: 0; z-index: 1000; }
+        .logo-text h1 { font-size: 1.1rem; color: #fff; }
         .logo-text p { font-size: 0.75rem; color: #94a3b8; }
-        .header-btn { background-color: #e67e22; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; }
-        .hero { background: linear-gradient(rgba(11, 19, 30, 0.9), rgba(11, 19, 30, 0.95)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1920&q=80') center/cover; padding: 60px 5%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 40px; border-bottom: 3px solid #e67e22; }
-        .hero-content { flex: 1; min-width: 300px; }
-        .hero-content h2 { font-size: 2rem; color: #ffffff; margin-bottom: 10px; }
-        .hero-content h3 { font-size: 1.2rem; color: #e67e22; margin-bottom: 20px; }
-        .hero-badge img { width: 280px; height: 280px; border-radius: 50%; border: 4px solid #e67e22; object-fit: cover; }
+        .header-btn { background-color: #e67e22; color: #fff; padding: 8px 18px; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: bold; }
+
+        /* بخش هیرو با عکس پس‌زمینه bg.jpg */
+        .hero { 
+            background: linear-gradient(rgba(11, 19, 30, 0.85), rgba(11, 19, 30, 0.9)), url('bg.jpg') center/cover; 
+            padding: 90px 5%; 
+            text-align: center; 
+            border-bottom: 3px solid #e67e22; 
+        }
+        .hero h2 { font-size: 2.3rem; color: #ffffff; margin-bottom: 15px; }
+        .hero h3 { font-size: 1.3rem; color: #e67e22; margin-bottom: 20px; }
+        .hero p { color: #94a3b8; font-size: 1.05rem; }
+
+        /* پروژه‌ها و صنایع */
         .projects-section { padding: 50px 5%; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-        .project-card { background-color: #131b2e; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; }
-        .project-img { height: 160px; background-color: #222; }
-        .project-img img { width: 100%; height: 100%; object-fit: cover; }
-        .project-body { padding: 15px; }
-        .project-cat { color: #e67e22; font-size: 0.8rem; }
-        .contact-section { padding: 50px 5%; text-align: center; background: #070b12; }
-        .contact-btn { background: #e67e22; color: #fff; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-size: 1.3rem; font-weight: bold; display: inline-block; margin-top: 20px; }
-        footer { text-align: center; padding: 25px; color: #94a3b8; font-size: 0.8rem; }
+        .projects-section h3 { font-size: 1.5rem; margin-bottom: 25px; color: #fff; text-align: center; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .project-card { background-color: #131b2e; border: 1px solid #1e293b; border-radius: 8px; padding: 25px 15px; text-align: center; transition: 0.3s; }
+        .project-card:hover { border-color: #e67e22; transform: translateY(-5px); }
+        .project-card i { font-size: 2.5rem; color: #e67e22; margin-bottom: 15px; }
+        .project-card h4 { font-size: 1.1rem; color: #fff; }
+
+        /* بخش تماس */
+        .contact-section { padding: 50px 5%; text-align: center; background: #070b12; border-top: 1px solid #1e293b; }
+        .contact-btn { background: #e67e22; color: #fff; padding: 15px 40px; border-radius: 5px; text-decoration: none; font-size: 1.3rem; font-weight: bold; display: inline-block; margin-top: 15px; }
+        
+        /* فوتر */
+        footer { background-color: #05080e; text-align: center; padding: 25px; color: #94a3b8; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
+    <!-- هدر -->
     <header>
-        <div class="logo-area">
-            <img src="logo.jpg" alt="لوگو">
-            <div class="logo-text">
-                <h1>مهندسی محسن نصری</h1>
-                <p>مرجع تخصصی نصب، تعمیرات و نگهداری تجهیزات صنعتی</p>
-            </div>
+        <div class="logo-text">
+            <h1>مهندسی محسن نصری</h1>
+            <p>مرجع تخصصی تجهیزات صنعتی</p>
         </div>
         <a href="tel:09193890454" class="header-btn">
             <i class="fa fa-phone"></i> ۰۹۱۹۳۸۹۰۴۵۴
         </a>
     </header>
 
+    <!-- بخش اصلی با پس‌زمینه -->
     <section class="hero">
-        <div class="hero-content">
-            <h2>مهندسی محسن نصری</h2>
-            <h3>مرجع تخصصی نصب، تعمیرات و نگهداری تجهیزات صنعتی</h3>
-            <p>بیش از دو دهه تجربه عملی در صنایع سنگین • ارائه راهکارهای تخصصی در زمینه نصب، راه‌اندازی، عیب‌یابی و نگهداری ماشین‌آلات صنعتی</p>
-        </div>
-        <div class="hero-badge">
-            <img src="logo.jpg" alt="لوگو">
-        </div>
+        <h2>مهندسی محسن نصری</h2>
+        <h3>مرجع تخصصی نصب، تعمیرات و نگهداری تجهیزات صنعتی</h3>
+        <p>بیش از دو دهه تجربه عملی در صنایع سنگین و ماشین‌آلات</p>
     </section>
 
+    <!-- حوزه‌های تخصصی -->
     <section class="projects-section">
-        <h3 style="margin-bottom:30px;">پروژه‌های منتخب و صنایع</h3>
+        <h3>حوزه‌های تخصصی و صنایع</h3>
         <div class="projects-grid">
-            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80"></div><div class="project-body"><div class="project-cat">صنعت الکتریک</div><h4>سیم‌پیچی و تعمیرات الکتروموتورهای سنگین</h4></div></div>
-            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80"></div><div class="project-body"><div class="project-cat">صنعت کابل‌سازی</div><h4>تعمیرات خط تولید شرکت کابل‌سازی</h4></div></div>
-            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80"></div><div class="project-body"><div class="project-cat">صنعت شیشه</div><h4>خط تولید شیشه فلوت و نگهداری تجهیزات</h4></div></div>
-            <div class="project-card"><div class="project-img"><img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80"></div><div class="project-body"><div class="project-cat">صنعت شیشه</div><h4>تعمیرات ماشین‌آلات تولید بطری شیشه</h4></div></div>
+            <div class="project-card">
+                <i class="fa fa-bolt"></i>
+                <h4>سیم‌پیچی</h4>
+            </div>
+            <div class="project-card">
+                <i class="fa fa-industry"></i>
+                <h4>صنعت شیشه فلوت</h4>
+            </div>
+            <div class="project-card">
+                <i class="fa fa-network-wired"></i>
+                <h4>صنعت کابل</h4>
+            </div>
+            <div class="project-card">
+                <i class="fa fa-cogs"></i>
+                <h4>صنعت فولاد</h4>
+            </div>
+            <div class="project-card">
+                <i class="fa fa-wine-bottle"></i>
+                <h4>شیشه دارویی و بطری</h4>
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h3>آماده همکاری در پروژه‌های صنعتی</h3>
+    <!-- بخش تماس -->
+    <section class="contact-section">
+        <h3 style="color: #fff;">آماده همکاری در پروژه‌های صنعتی</h3>
+        <p style="color: #94a3b8; margin-top: 5px;">برای مشاوره فنی و هماهنگی پروژه‌ها با من در تماس باشید</p>
         <a href="tel:09193890454" class="contact-btn">
             <i class="fa fa-phone"></i> ۰۹۱۹۳۸۹۰۴۵۴
         </a>
     </section>
 
+    <!-- فوتر -->
     <footer>
         <p>Mohsen Nasri Engineering • Industrial Installation, Repair & Maintenance</p>
     </footer>
