@@ -7,7 +7,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Tahoma, sans-serif; }
         body { background-color: #0b131e; color: #fff; direction: rtl; line-height: 1.6; text-align: right; }
         
-        /* بنر بالای سایت (دست‌نخورده) */
+        /* بنر بالای سایت */
         .banner-container {
             width: 100%;
             height: 350px;
@@ -29,14 +29,14 @@
 
         .container { max-width: 1100px; margin: 30px auto; padding: 0 15px; }
         
-        /* ۵ تا کارت خدمات پایین سایت */
+        /* ۵ کارت خدمات پایین سایت */
         .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
         .card { background: #131b2e; border: 1px solid #1e293b; border-radius: 8px; overflow: hidden; text-align: center; cursor: pointer; transition: 0.3s; }
         .card:hover { border-color: #e67e22; transform: translateY(-3px); }
         .card img { width: 100%; height: 140px; object-fit: cover; }
         .card h4 { padding: 15px; color: #fff; margin-top: -5px; }
 
-        /* نمای داخلی مطالب هر بخش (که برای همه بخش‌ها فعال است) */
+        /* صفحات داخلی با امکانات کامل مقاله‌نویسی، جدول و عکس */
         .detail-section {
             display: none;
             background: #131b2e;
@@ -64,29 +64,55 @@
         }
         .back-btn:hover { background: #475569; }
 
-        .detail-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 25px;
-            align-items: start;
-        }
-
-        @media (max-width: 768px) {
-            .detail-content { grid-template-columns: 1fr; }
-        }
-
-        .detail-content img {
+        .article-content h2 { color: #e67e22; margin-bottom: 15px; font-size: 1.8rem; border-bottom: 2px solid #1e293b; padding-bottom: 10px; }
+        .article-content h3 { color: #f39c12; margin: 25px 0 10px 0; font-size: 1.3rem; }
+        .article-content p { color: #cbd5e1; margin-bottom: 15px; line-height: 1.8; font-size: 1.05rem; }
+        
+        .main-img {
             width: 100%;
-            height: 250px;
+            max-height: 350px;
             object-fit: cover;
             border-radius: 8px;
             border: 1px solid #334155;
+            margin-bottom: 20px;
         }
 
-        .detail-text h2 { color: #e67e22; margin-bottom: 15px; font-size: 1.5rem; }
-        .detail-text p { color: #ccc; margin-bottom: 15px; line-height: 1.8; }
-        .detail-text ul { padding-right: 20px; color: #cbd5e1; margin-top: 10px; }
-        .detail-text ul li { margin-bottom: 8px; }
+        /* استایل جدول‌های صنعتی */
+        .industrial-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #0f172a;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .industrial-table th, .industrial-table td {
+            border: 1px solid #1e293b;
+            padding: 12px 15px;
+            text-align: right;
+        }
+        .industrial-table th {
+            background: #1e293b;
+            color: #e67e22;
+        }
+        .industrial-table td {
+            color: #cbd5e1;
+        }
+
+        /* گالری تصاویر کوچک داخل مقاله */
+        .sub-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .sub-gallery img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #334155;
+        }
 
         .contact { padding: 40px; text-align: center; background: #070b12; margin-top: 30px; }
         .btn { background: #e67e22; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; }
@@ -94,13 +120,11 @@
 </head>
 <body>
 
-    <!-- هدر سایت -->
     <header>
         <h1>مهندسی محسن نصری</h1>
         <a href="tel:09193890454" style="color:#e67e22; font-weight:bold; text-decoration:none;">۰۹۱۹۳۸۹۰۴۵۴</a>
     </header>
 
-    <!-- عکس بنر صنعتی بالای سایت -->
     <div class="banner-container"></div>
 
     <section class="hero">
@@ -110,7 +134,7 @@
 
     <div class="container">
 
-        <!-- منوی اصلی کارت‌ها (۵ عکس خدمات) -->
+        <!-- منوی اصلی کارت‌ها -->
         <div id="main-projects" class="projects">
             <div class="card" onclick="openSection('sim-section')">
                 <img src="sim.jpg" alt="سیم‌پیچی">
@@ -134,21 +158,40 @@
             </div>
         </div>
 
-        <!-- ================= صفحات داخلی مطالب (برای همه بخش‌ها) ================= -->
+        <!-- ================= صفحات داخلی با قابلیت مقاله، جدول و عکس ================= -->
 
         <!-- ۱. سیم‌پیچی -->
         <div id="sim-section" class="detail-section">
             <button class="back-btn" onclick="goBack()">← بازگشت به صفحه اصلی</button>
-            <div class="detail-content">
-                <img src="sim.jpg" alt="سیم‌پیچی">
-                <div class="detail-text">
-                    <h2>سیم‌پیچی و الکتروموتورهای صنعتی</h2>
-                    <p>در اینجا می‌توانید هرچقدر که می‌خواهید مطالب، توضیحات فنی، مقالات یا جزئیات پروژه‌های سیم‌پیچی خود را بنویسید:</p>
-                    <ul>
-                        <li>بازپیچی تخصصی موتورهای AC و DC ولتاژ بالا و پایین</li>
-                        <li>عایق‌کاری حرارتی و تست‌های دقیق الکتریکی</li>
-                        <li>رفع اتصالی، بالانس روتور و تعویض بلبرینگ‌های صنعتی سنگین</li>
-                    </ul>
+            <div class="article-content">
+                <h2>سیم‌پیچی و الکتروموتورهای صنعتی</h2>
+                <img src="sim.jpg" class="main-img" alt="سیم‌پیچی">
+                
+                <p>در این بخش می‌توانید متن کامل مقالات، گزارش پروژه‌ها و جزئیات تخصصی سیم‌پیچی موتورهای سنگین را بنویسید. هر پاراگراف یا مطلبی که نیاز باشد را می‌توانید در این قسمت اضافه کنید.</p>
+                
+                <h3>مشخصات فنی و جدول اطلاعات</h3>
+                <table class="industrial-table">
+                    <tr>
+                        <th>نوع تجهیز</th>
+                        <th>محدوده توان</th>
+                        <th>توضیحات تعمیراتی</th>
+                    </tr>
+                    <tr>
+                        <td>موتورهای AC سه فاز</td>
+                        <td>تا چند مگاوات</td>
+                        <td>بازپیچی با سیم مسی باهنر، لاک نسوز</td>
+                    </tr>
+                    <tr>
+                        <td>موتورهای DC صنعتی</td>
+                        <td>سنگین</td>
+                        <td>تراش کوموتاتور، تعویض زغال و عایق‌کاری</td>
+                    </tr>
+                </table>
+
+                <h3>گالری تصاویر و مستندات این بخش</h3>
+                <div class="sub-gallery">
+                    <img src="sim.jpg" alt="تصویر نمونه ۱">
+                    <img src="sim.jpg" alt="تصویر نمونه ۲">
                 </div>
             </div>
         </div>
@@ -156,16 +199,35 @@
         <!-- ۲. شیشه فلوت -->
         <div id="float-section" class="detail-section">
             <button class="back-btn" onclick="goBack()">← بازگشت به صفحه اصلی</button>
-            <div class="detail-content">
-                <img src="float.jpg" alt="شیشه فلوت">
-                <div class="detail-text">
-                    <h2>شیشه فلوت و ماشین‌آلات خط تولید</h2>
-                    <p>در این بخش می‌توانید مطالب کامل مربوط به خطوط شیشه فلوت، اورهال و تنظیمات مکانیکی را اضافه کنید:</p>
-                    <ul>
-                        <li>تنظیم مکانیکی خطوط تولید و حوضچه قلع (Tin Bath)</li>
-                        <li>تعمیرات پیشگیرانه و اورهال اساسی ماشین‌آلات برش</li>
-                        <li>عیب‌یابی تخصصی سیستم‌های محرک خط تولید</li>
-                    </ul>
+            <div class="article-content">
+                <h2>شیشه فلوت و ماشین‌آلات خط تولید</h2>
+                <img src="float.jpg" class="main-img" alt="شیشه فلوت">
+                
+                <p>محل درج مقالات تخصصی، نحوه تنظیم مکانیکی خطوط فلوت، عیب‌یابی حوضچه قلع و تجربیات عملی دو دهه فعالیت در صنایع شیشه‌سازی.</p>
+                
+                <h3>جدول وضعیت و تنظیمات خط تولید</h3>
+                <table class="industrial-table">
+                    <tr>
+                        <th>بخش دستگاه</th>
+                        <th>نوع سرویس</th>
+                        <th>استاندارد تنظیم</th>
+                    </tr>
+                    <tr>
+                        <td>حوضچه قلع (Tin Bath)</td>
+                        <td>تنظیم مکانیکی و آب‌بندی</td>
+                        <td>تلرانس میکرومتری دقیق</td>
+                    </tr>
+                    <tr>
+                        <td>بخش برش و انتقال</td>
+                        <td>اورهال و تعویض قطعات</td>
+                        <td>چکاپ دوره‌ای گیربکس‌ها</td>
+                    </tr>
+                </table>
+
+                <h3>تصاویر تکمیلی خط فلوت</h3>
+                <div class="sub-gallery">
+                    <img src="float.jpg" alt="فلوت ۱">
+                    <img src="float.jpg" alt="فلوت ۲">
                 </div>
             </div>
         </div>
@@ -173,16 +235,35 @@
         <!-- ۳. صنعت کابل -->
         <div id="cable-section" class="detail-section">
             <button class="back-btn" onclick="goBack()">← بازگشت به صفحه اصلی</button>
-            <div class="detail-content">
-                <img src="cable.jpg" alt="صنعت کابل">
-                <div class="detail-text">
-                    <h2>صنعت کابل و تجهیزات دوار</h2>
-                    <p>محل درج مقالات، سوابق و توضیحات کامل درباره ماشین‌آلات صنعت کابل‌سازی:</p>
-                    <ul>
-                        <li>نصب، تنظیم و راه‌اندازی ماشین‌آلات تابندگی و اکسترودر</li>
-                        <li>سرویس دوره‌ای شفت‌ها و سیستم‌های انتقال نیرو</li>
-                        <li>رفع لرزش‌های مکانیکی و تراز تجهیزات دوار</li>
-                    </ul>
+            <div class="article-content">
+                <h2>صنعت کابل و تجهیزات دوار</h2>
+                <img src="cable.jpg" class="main-img" alt="صنعت کابل">
+                
+                <p>توضیحات جامع درباره ماشین‌آلات تابندگی، اکسترودرها، رفع لرزش‌های مکانیکی و روش‌های نگهداری پیشگیرانه در کارخانجات کابل‌سازی.</p>
+                
+                <h3>جدول تجهیزات صنعت کابل</h3>
+                <table class="industrial-table">
+                    <tr>
+                        <th>نام ماشین‌آلات</th>
+                        <th>عملیات اجرایی</th>
+                        <th>نکات فنی</th>
+                    </tr>
+                    <tr>
+                        <td>اکسترودرها</td>
+                        <td>تراز لیزری و تعویض یاتاقان</td>
+                        <td>جلوگیری از لرزش محور</td>
+                    </tr>
+                    <tr>
+                        <td>دستگاه‌های تابندگی</td>
+                        <td>سرویس گیربکس و شفت‌ها</td>
+                        <td>تنظیم دور و گشتاور</td>
+                    </tr>
+                </table>
+
+                <h3>گالری تصاویر صنعت کابل</h3>
+                <div class="sub-gallery">
+                    <img src="cable.jpg" alt="کابل ۱">
+                    <img src="cable.jpg" alt="کابل ۲">
                 </div>
             </div>
         </div>
@@ -190,16 +271,35 @@
         <!-- ۴. صنعت فولاد -->
         <div id="steel-section" class="detail-section">
             <button class="back-btn" onclick="goBack()">← بازگشت به صفحه اصلی</button>
-            <div class="detail-content">
-                <img src="steel.jpg" alt="صنعت فولاد">
-                <div class="detail-text">
-                    <h2>صنعت فولاد و تجهیزات سنگین</h2>
-                    <p>محل درج مستندات، پروژه‌ها و مطالب تخصصی خطوط نورد و فولادسازی:</p>
-                    <ul>
-                        <li>نصب و کمیسیونینگ تجهیزات سنگین خط نورد</li>
-                        <li>تعمیرات اساسی جک‌ها و سیستم‌های هیدرولیک</li>
-                        <li>مدیریت تیم‌های فنی در اورهال‌های سنگین</li>
-                    </ul>
+            <div class="article-content">
+                <h2>صنعت فولاد و تجهیزات سنگین</h2>
+                <img src="steel.jpg" class="main-img" alt="صنعت فولاد">
+                
+                <p>مستندات کامل پروژه‌های نصب و کمیسیونینگ در خطوط نورد و فولادسازی، تعمیرات اساسی جک‌ها و مدیریت تیم‌های فنی اورهال.</p>
+                
+                <h3>جدول پروژه‌ها و تجهیزات فولاد</h3>
+                <table class="industrial-table">
+                    <tr>
+                        <th>بخش صنعتی</th>
+                        <th>نوع فعالیت</th>
+                        <th>وضعیت پروژه</th>
+                    </tr>
+                    <tr>
+                        <td>خط نورد گرم و سرد</td>
+                        <td>نصب و راه‌اندازی مکانیکی</td>
+                        <td>تکمیل شده / آماده بهره‌برداری</td>
+                    </tr>
+                    <tr>
+                        <td>سیستم‌های هیدرولیک سنگین</td>
+                        <td>تعمیر و تست فشار</td>
+                        <td>سرویس دوره‌ای</td>
+                    </tr>
+                </table>
+
+                <h3>تصاویر پروژه فولاد</h3>
+                <div class="sub-gallery">
+                    <img src="steel.jpg" alt="فولاد ۱">
+                    <img src="steel.jpg" alt="فولاد ۲">
                 </div>
             </div>
         </div>
@@ -207,16 +307,35 @@
         <!-- ۵. شیشه دارویی -->
         <div id="bottle-section" class="detail-section">
             <button class="back-btn" onclick="goBack()">← بازگشت به صفحه اصلی</button>
-            <div class="detail-content">
-                <img src="bottle.jpg" alt="شیشه دارویی">
-                <div class="detail-text">
-                    <h2>شیشه دارویی و ماشین‌آلات حساس</h2>
-                    <p>محل درج اطلاعات تخصصی، سرویس و نگهداری تجهیزات تولید ظروف دارویی:</p>
-                    <ul>
-                        <li>نگهداری و تنظیم ماشین‌آلات فرم‌دهی شیشه دارویی</li>
-                        <li>رعایت تلرانس‌های دقیق مکانیکی</li>
-                        <li>عیب‌یابی سریع جهت حذف ضایعات تولید</li>
-                    </ul>
+            <div class="article-content">
+                <h2>شیشه دارویی و ماشین‌آلات حساس</h2>
+                <img src="bottle.jpg" class="main-img" alt="شیشه دارویی">
+                
+                <p>اطلاعات فنی و مقالات تخصصی در زمینه سرویس و نگهداری ماشین‌آلات فرم‌دهی ظروف دارویی (آمپول و ویال) با بالاترین دقت مکانیکی.</p>
+                
+                <h3>جدول مشخصات و استانداردهای شیشه دارویی</h3>
+                <table class="industrial-table">
+                    <tr>
+                        <th>بخش دستگاه</th>
+                        <th>دقت مورد نیاز</th>
+                        <th>اقدام فنی</th>
+                    </tr>
+                    <tr>
+                        <td>فرم‌دهی آمپول و ویال</td>
+                        <td>تلرانس میکرومتری</td>
+                        <td>تنظیم بادامک‌ها و قطعات دوار</td>
+                    </tr>
+                    <tr>
+                        <td>سیستم انتقال محصول</td>
+                        <td>بدون ضایعات (Zero Defect)</td>
+                        <td>کالیبراسیون و عیب‌یابی سریع</td>
+                    </tr>
+                </table>
+
+                <h3>گالری تصاویر شیشه دارویی</h3>
+                <div class="sub-gallery">
+                    <img src="bottle.jpg" alt="دارویی ۱">
+                    <img src="bottle.jpg" alt="دارویی ۲">
                 </div>
             </div>
         </div>
@@ -224,7 +343,7 @@
     </div>
 
     <section class="contact">
-        <a href="tel:09193890454" class="btn">تماس با من: ۰۹۱۹۳۸۹۰۴۵۴</a>
+        <a href="tel:09193890454" class="btn">تماس با من: ۰۹۱۹3890454</a>
     </section>
 
     <!-- اسکریپت جاوااسکریپت -->
