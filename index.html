@@ -36,7 +36,7 @@
         .card img { width: 100%; height: 140px; object-fit: cover; }
         .card h4 { padding: 15px; color: #fff; margin-top: -5px; }
 
-        /* صفحات داخلی با امکانات کامل مقاله‌نویسی، جدول و عکس */
+        /* صفحات داخلی مقالات و مطالب */
         .detail-section {
             display: none;
             background: #131b2e;
@@ -61,13 +61,11 @@
             font-weight: bold;
             margin-bottom: 20px;
             font-family: Tahoma, sans-serif;
+            transition: 0.2s;
         }
-        .back-btn:hover { background: #475569; }
+        .back-btn:hover { background: #e67e22; }
 
         .article-content h2 { color: #e67e22; margin-bottom: 15px; font-size: 1.8rem; border-bottom: 2px solid #1e293b; padding-bottom: 10px; }
-        .article-content h3 { color: #f39c12; margin: 25px 0 10px 0; font-size: 1.3rem; }
-        .article-content p { color: #cbd5e1; margin-bottom: 15px; line-height: 1.8; font-size: 1.05rem; }
-        
         .main-img {
             width: 100%;
             max-height: 350px;
@@ -77,41 +75,78 @@
             margin-bottom: 20px;
         }
 
+        /* بخش لیست مطالب کشویی با قابلیت تغییر رنگ به قرمز هنگام رفتن موس */
+        .post-list {
+            margin-top: 20px;
+        }
+        
+        .post-item {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* وقتی موس میره روی مطلب، رنگش قرمز میشه */
+        .post-item:hover {
+            border-color: #ef4444;
+            background: #1a1c23;
+        }
+        .post-item:hover .post-title {
+            color: #ef4444;
+        }
+
+        .post-title {
+            padding: 15px 20px;
+            font-size: 1.1rem;
+            color: #fff;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        /* محتوای کشویی داخلی هر مطلب */
+        .post-body {
+            display: none;
+            padding: 20px;
+            background: #070b12;
+            border-top: 1px solid #1e293b;
+            color: #cbd5e1;
+        }
+        .post-body p { margin-bottom: 15px; line-height: 1.8; }
+
         /* استایل جدول‌های صنعتی */
         .industrial-table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 15px 0;
             background: #0f172a;
             border-radius: 6px;
             overflow: hidden;
         }
         .industrial-table th, .industrial-table td {
             border: 1px solid #1e293b;
-            padding: 12px 15px;
+            padding: 10px 15px;
             text-align: right;
         }
-        .industrial-table th {
-            background: #1e293b;
-            color: #e67e22;
-        }
-        .industrial-table td {
-            color: #cbd5e1;
-        }
+        .industrial-table th { background: #1e293b; color: #e67e22; }
 
-        /* گالری تصاویر کوچک داخل مقاله */
         .sub-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
         }
         .sub-gallery img {
             width: 100%;
-            height: 150px;
+            height: 130px;
             object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid #334155;
+            border-radius: 4px;
         }
 
         .contact { padding: 40px; text-align: center; background: #070b12; margin-top: 30px; }
@@ -134,7 +169,7 @@
 
     <div class="container">
 
-        <!-- منوی اصلی کارت‌ها -->
+        <!-- منوی اصلی کارت‌ها (۵ تا عکس خدمات) -->
         <div id="main-projects" class="projects">
             <div class="card" onclick="openSection('sim-section')">
                 <img src="sim.jpg" alt="سیم‌پیچی">
@@ -158,7 +193,7 @@
             </div>
         </div>
 
-        <!-- ================= صفحات داخلی با قابلیت مقاله، جدول و عکس ================= -->
+        <!-- ================= صفحات داخلی با مطالب کشویی و افکت قرمز ================= -->
 
         <!-- ۱. سیم‌پیچی -->
         <div id="sim-section" class="detail-section">
@@ -167,32 +202,37 @@
                 <h2>سیم‌پیچی و الکتروموتورهای صنعتی</h2>
                 <img src="sim.jpg" class="main-img" alt="سیم‌پیچی">
                 
-                <p>در این بخش می‌توانید متن کامل مقالات، گزارش پروژه‌ها و جزئیات تخصصی سیم‌پیچی موتورهای سنگین را بنویسید. هر پاراگراف یا مطلبی که نیاز باشد را می‌توانید در این قسمت اضافه کنید.</p>
-                
-                <h3>مشخصات فنی و جدول اطلاعات</h3>
-                <table class="industrial-table">
-                    <tr>
-                        <th>نوع تجهیز</th>
-                        <th>محدوده توان</th>
-                        <th>توضیحات تعمیراتی</th>
-                    </tr>
-                    <tr>
-                        <td>موتورهای AC سه فاز</td>
-                        <td>تا چند مگاوات</td>
-                        <td>بازپیچی با سیم مسی باهنر، لاک نسوز</td>
-                    </tr>
-                    <tr>
-                        <td>موتورهای DC صنعتی</td>
-                        <td>سنگین</td>
-                        <td>تراش کوموتاتور، تعویض زغال و عایق‌کاری</td>
-                    </tr>
-                </table>
+                <div class="post-list">
+                    <!-- مطلب اول -->
+                    <div class="post-item">
+                        <div class="post-title" onclick="togglePost(this)">
+                            <span>مطلب اول: بازپیچی موتورهای سنگین AC</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="post-body">
+                            <p>توضیحات کامل و جزئیات فنی این مطلب را اینجا بنویسید...</p>
+                            <table class="industrial-table">
+                                <tr><th>مشخصات</th><th>مقدار</th></tr>
+                                <tr><td>توان موتور</td><td>تا چند مگاوات</td></tr>
+                            </table>
+                        </div>
+                    </div>
 
-                <h3>گالری تصاویر و مستندات این بخش</h3>
-                <div class="sub-gallery">
-                    <img src="sim.jpg" alt="تصویر نمونه ۱">
-                    <img src="sim.jpg" alt="تصویر نمونه ۲">
+                    <!-- مطلب دوم (هر چقدر خواستی از این باکس‌ها می‌تونی کپی کنی و اضافه کنی) -->
+                    <div class="post-item">
+                        <div class="post-title" onclick="togglePost(this)">
+                            <span>مطلب دوم: تست عایق‌کاری و رفع اتصالی</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="post-body">
+                            <p>متن کامل مطلب دوم و عکس‌های مربوطه...</p>
+                            <div class="sub-gallery">
+                                <img src="sim.jpg" alt="نمونه عکس">
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -203,32 +243,18 @@
                 <h2>شیشه فلوت و ماشین‌آلات خط تولید</h2>
                 <img src="float.jpg" class="main-img" alt="شیشه فلوت">
                 
-                <p>محل درج مقالات تخصصی، نحوه تنظیم مکانیکی خطوط فلوت، عیب‌یابی حوضچه قلع و تجربیات عملی دو دهه فعالیت در صنایع شیشه‌سازی.</p>
-                
-                <h3>جدول وضعیت و تنظیمات خط تولید</h3>
-                <table class="industrial-table">
-                    <tr>
-                        <th>بخش دستگاه</th>
-                        <th>نوع سرویس</th>
-                        <th>استاندارد تنظیم</th>
-                    </tr>
-                    <tr>
-                        <td>حوضچه قلع (Tin Bath)</td>
-                        <td>تنظیم مکانیکی و آب‌بندی</td>
-                        <td>تلرانس میکرومتری دقیق</td>
-                    </tr>
-                    <tr>
-                        <td>بخش برش و انتقال</td>
-                        <td>اورهال و تعویض قطعات</td>
-                        <td>چکاپ دوره‌ای گیربکس‌ها</td>
-                    </tr>
-                </table>
-
-                <h3>تصاویر تکمیلی خط فلوت</h3>
-                <div class="sub-gallery">
-                    <img src="float.jpg" alt="فلوت ۱">
-                    <img src="float.jpg" alt="فلوت ۲">
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-title" onclick="togglePost(this)">
+                            <span>مطلب اول: تنظیم مکانیکی حوضچه قلع (Tin Bath)</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="post-body">
+                            <p>توضیحات تخصصی خط فلوت...</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -239,32 +265,18 @@
                 <h2>صنعت کابل و تجهیزات دوار</h2>
                 <img src="cable.jpg" class="main-img" alt="صنعت کابل">
                 
-                <p>توضیحات جامع درباره ماشین‌آلات تابندگی، اکسترودرها، رفع لرزش‌های مکانیکی و روش‌های نگهداری پیشگیرانه در کارخانجات کابل‌سازی.</p>
-                
-                <h3>جدول تجهیزات صنعت کابل</h3>
-                <table class="industrial-table">
-                    <tr>
-                        <th>نام ماشین‌آلات</th>
-                        <th>عملیات اجرایی</th>
-                        <th>نکات فنی</th>
-                    </tr>
-                    <tr>
-                        <td>اکسترودرها</td>
-                        <td>تراز لیزری و تعویض یاتاقان</td>
-                        <td>جلوگیری از لرزش محور</td>
-                    </tr>
-                    <tr>
-                        <td>دستگاه‌های تابندگی</td>
-                        <td>سرویس گیربکس و شفت‌ها</td>
-                        <td>تنظیم دور و گشتاور</td>
-                    </tr>
-                </table>
-
-                <h3>گالری تصاویر صنعت کابل</h3>
-                <div class="sub-gallery">
-                    <img src="cable.jpg" alt="کابل ۱">
-                    <img src="cable.jpg" alt="کابل ۲">
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-title" onclick="togglePost(this)">
+                            <span>مطلب اول: تراز لیزری و سرویس اکسترودرها</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="post-body">
+                            <p>توضیحات صنعت کابل...</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -275,32 +287,18 @@
                 <h2>صنعت فولاد و تجهیزات سنگین</h2>
                 <img src="steel.jpg" class="main-img" alt="صنعت فولاد">
                 
-                <p>مستندات کامل پروژه‌های نصب و کمیسیونینگ در خطوط نورد و فولادسازی، تعمیرات اساسی جک‌ها و مدیریت تیم‌های فنی اورهال.</p>
-                
-                <h3>جدول پروژه‌ها و تجهیزات فولاد</h3>
-                <table class="industrial-table">
-                    <tr>
-                        <th>بخش صنعتی</th>
-                        <th>نوع فعالیت</th>
-                        <th>وضعیت پروژه</th>
-                    </tr>
-                    <tr>
-                        <td>خط نورد گرم و سرد</td>
-                        <td>نصب و راه‌اندازی مکانیکی</td>
-                        <td>تکمیل شده / آماده بهره‌برداری</td>
-                    </tr>
-                    <tr>
-                        <td>سیستم‌های هیدرولیک سنگین</td>
-                        <td>تعمیر و تست فشار</td>
-                        <td>سرویس دوره‌ای</td>
-                    </tr>
-                </table>
-
-                <h3>تصاویر پروژه فولاد</h3>
-                <div class="sub-gallery">
-                    <img src="steel.jpg" alt="فولاد ۱">
-                    <img src="steel.jpg" alt="فولاد ۲">
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-title" onclick="togglePost(this)">
+                            <span>مطلب اول: اورهال خط نورد و تجهیزات سنگین</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="post-body">
+                            <p>توضیحات فولاد...</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -311,42 +309,28 @@
                 <h2>شیشه دارویی و ماشین‌آلات حساس</h2>
                 <img src="bottle.jpg" class="main-img" alt="شیشه دارویی">
                 
-                <p>اطلاعات فنی و مقالات تخصصی در زمینه سرویس و نگهداری ماشین‌آلات فرم‌دهی ظروف دارویی (آمپول و ویال) با بالاترین دقت مکانیکی.</p>
-                
-                <h3>جدول مشخصات و استانداردهای شیشه دارویی</h3>
-                <table class="industrial-table">
-                    <tr>
-                        <th>بخش دستگاه</th>
-                        <th>دقت مورد نیاز</th>
-                        <th>اقدام فنی</th>
-                    </tr>
-                    <tr>
-                        <td>فرم‌دهی آمپول و ویال</td>
-                        <td>تلرانس میکرومتری</td>
-                        <td>تنظیم بادامک‌ها و قطعات دوار</td>
-                    </tr>
-                    <tr>
-                        <td>سیستم انتقال محصول</td>
-                        <td>بدون ضایعات (Zero Defect)</td>
-                        <td>کالیبراسیون و عیب‌یابی سریع</td>
-                    </tr>
-                </table>
-
-                <h3>گالری تصاویر شیشه دارویی</h3>
-                <div class="sub-gallery">
-                    <img src="bottle.jpg" alt="دارویی ۱">
-                    <img src="bottle.jpg" alt="دارویی ۲">
+                <div class="post-list">
+                    <div class="post-item">
+                        <div class="post-title" onclick="togglePost(this)">
+                            <span>مطلب اول: تنظیم بادامک‌ها و فرم‌دهی آمپول و ویال</span>
+                            <span>▼</span>
+                        </div>
+                        <div class="post-body">
+                            <p>توضیحات شیشه دارویی...</p>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
 
     </div>
 
     <section class="contact">
-        <a href="tel:09193890454" class="btn">تماس با من: ۰۹۱۹3890454</a>
+        <a href="tel:09193890454" class="btn">تماس با من: ۰۹۱۹۳۸۹۰۴۵۴</a>
     </section>
 
-    <!-- اسکریپت جاوااسکریپت -->
+    <!-- اسکریپت‌های حرکتی و کشویی -->
     <script>
         function openSection(sectionId) {
             document.getElementById('main-projects').style.display = 'none';
@@ -361,6 +345,16 @@
             sections.forEach(sec => sec.style.display = 'none');
             document.getElementById('main-projects').style.display = 'grid';
             window.scrollTo({ top: 400, behavior: 'smooth' });
+        }
+
+        // تابع باز و بسته شدن مطالب کشویی
+        function togglePost(element) {
+            let body = element.nextElementSibling;
+            if (body.style.display === "block") {
+                body.style.display = "none";
+            } else {
+                body.style.display = "block";
+            }
         }
     </script>
 
